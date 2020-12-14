@@ -1,0 +1,121 @@
+# section information
+section:
+  name: Experiences
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your experiences
+experiences:
+  - company:
+      name: Cigna
+      url: "https://www.cigna.com"
+      location: Bloomfield, CT, USA
+      overview: |
+        Cigna, a global health service company, offering health, pharmacy,
+        dental, supplemental insurance and Medicare plans to individuals,
+        families, and businesses.
+    positions:
+      - designation: Architecture Senior Advisor, Digital DevSecOps
+        start: November, 2019
+        # don't provide end date if you are currently working there. It will be replaced by "Present"
+        # end: Dec 2020
+        # give some points about what was your responsibilities at the company.
+        responsibilities:
+          - "I work predominantly on helping deliver our 
+          customer-facing web entities to the market quickly and iteratively.
+          With a greater emphasis towards containerization and cloud-native
+          architecture, I work with my delivery partners in their efforts to move
+          applications to containers, and provide self-service tools to move
+          their applications to a combination of public and private cloud
+          infrastructures."
+      - designation: Architecture Advisor, Digital DevOps
+        start: July, 2018
+        end: November, 2019
+        responsibilities:
+          - "I work predominantly on helping deliver our 
+          customer-facing web entities to the market quickly and iteratively.
+          With a greater emphasis towards containerization and cloud-native
+          architecture, I work with my delivery partners in their efforts to move
+          applications to containers, and provide self-service tools to move
+          their applications to a combination of public and private cloud
+          infrastructures."
+      - designation: Infrastructure Engineer Senior Specialist
+        start: June, 2016
+        end: July, 2018
+        responsibilities:
+          - "In my role as Infrastructure Engineer, I work predominantly on 
+            automating processes currently being used by Cigna to improve uptime
+            and availability on customer-facing web entities, powered by IBM
+            WebSphere, Java with Spring Boot framework and Node.JS. This role
+            includes general Linux and Unix system administration, as well as
+            the design of waterfall-style and continuous delivery pipelines."
+  - company:
+      name: ProctorFree
+      url: "https://www.proctorfree.com"
+      location: Huntersville, NC, USA
+      overview: |
+        ProctorFree is an on-demand, convenient, and cost-effective online
+        proctoring solution for education and corporate environments.
+    positions:
+      - designation: DevOps Engineer
+        start: April, 2015
+        end: April, 2016
+        responsibilities:
+          - "In my role as DevOps Engineer, I assist in optimizing system
+            uptime, performing preventative maintenance and identifying room
+            for improvement within the company’s infrastructure."
+  - company:
+      name: RealTech, LLC
+      # url: "https://www.intern.com"
+      location: West Chester, OH, USA
+      overview: |
+        RealTech is a custom software development company that builds advanced
+        solutions for mortgage professionals who wish to focus on purchase
+        mortgage business and maximize profits and results through technology.
+    positions:
+      - designation: Product Owner
+        start: March, 2014
+        end: July, 2014
+        responsibilities:
+          - In my role as Systems Administrator, I am responsible for the emotional
+            and nutritional well-being of our server environment.
+  - company:
+      name: iFAX Solutions, Inc.
+      url: "https://www.ifax.com"
+      location: Plymouth Meeting, PA, USA
+      overview: |
+        iFAX Solutions is the developer of HylaFAX Enterprise Edition, the world’s
+        most popular fax server software and the leading fax server for business. 
+    positions:
+      - designation: Product Owner
+        start: December, 2012
+        end: September, 2013
+        responsibilities:
+          - As technical support engineer, I am responsible for the diagnosis and
+            repair of any hiccups that may occur in the HylaFAX software for our
+            clients, as well as providing appropriate care to the clients
+            themselves. In addition, I get to serve as a “jack of all trades,”
+            providing operational support for the core business of the company and
+            its secondary operating unit, TelephonyDepot.com.
+  - company:
+      name: Community Action Committee of the Lehigh Valley, Inc.
+      url: "https://www.caclv.org"
+      location: Bethlehem, PA, USA
+      overview: |
+        The Community Action Committee of the Lehigh Valley is a multifaceted
+        non-profit organization that operates financial education programs, provides
+        food assistance, job placement, mortgage foreclosure diversion, aid for the
+        homeless, neighborhood revitalization, small business assistance, energy
+        assistance and computer classes for children.
+    positions:
+      - designation: Director of Information Technologies
+        start: October, 2003
+        end: December, 2012
+        responsibilities:
+          - As the Director of Information Technology, I led a team of three people
+            to manage the voice and data infrastructure for twelve drastically varied
+            worksites spread across two counties in Northeast Pennsylvania.
