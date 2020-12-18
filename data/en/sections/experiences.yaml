@@ -10,6 +10,28 @@ section:
 
 # Your experiences
 experiences:
+  # - company:
+  #     name: Evernorth
+  #     url: "https://www.evernorth.com"
+  #     location: Bloomfield, CT, USA
+  #     overview: |
+  #       Evernorth brings powerful health services capabilities and solutions
+  #       together to unlock new potential. New value. To help individuals,
+  #       businesses, and their employees, we make progress at work and in life.
+  #   positions:
+  #     - designation: Architecture Senior Advisor, Digital DevSecOps
+  #       start: May, 2021
+  #       # don't provide end date if you are currently working there. It will be replaced by "Present"
+  #       # end: Dec 2020
+  #       # give some points about what was your responsibilities at the company.
+  #       responsibilities:
+  #         - "I work predominantly on helping deliver our 
+  #         customer-facing web entities to the market quickly and iteratively.
+  #         With a greater emphasis towards containerization and cloud-native
+  #         architecture, I work with my delivery partners in their efforts to move
+  #         applications to containers, and provide self-service tools to move
+  #         their applications to a combination of public and private cloud
+  #         infrastructures."
   - company:
       name: Cigna
       url: "https://www.cigna.com"
@@ -22,7 +44,7 @@ experiences:
       - designation: Architecture Senior Advisor, Digital DevSecOps
         start: November, 2019
         # don't provide end date if you are currently working there. It will be replaced by "Present"
-        # end: Dec 2020
+        # end: April, 2021
         # give some points about what was your responsibilities at the company.
         responsibilities:
           - "I work predominantly on helping deliver our 
@@ -77,7 +99,7 @@ experiences:
         solutions for mortgage professionals who wish to focus on purchase
         mortgage business and maximize profits and results through technology.
     positions:
-      - designation: Product Owner
+      - designation: Linux Systems Administrator
         start: March, 2014
         end: July, 2014
         responsibilities:
@@ -91,7 +113,7 @@ experiences:
         iFAX Solutions is the developer of HylaFAX Enterprise Edition, the world’s
         most popular fax server software and the leading fax server for business. 
     positions:
-      - designation: Product Owner
+      - designation: Technical Support Engineer
         start: December, 2012
         end: September, 2013
         responsibilities:

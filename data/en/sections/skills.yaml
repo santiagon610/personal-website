@@ -29,29 +29,30 @@ skills:
   - name: Docker
     icon: "/images/sections/skills/docker.svg"
     summary: |
-      Write most of the programs as dockerized container. Experienced 
-      with multi-stage, multi-arch build process.
+      It works in my container. It's the 2018 equivalent of "but it works in my local," and I'm not even ashamed.
     url: "https://www.docker.com/"
 
-  - name: Go Development
-    icon: "/images/sections/skills/go.png"
-    summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
-    url: "https://golang.org/"
+  # - name: Go Development
+  #   icon: "/images/sections/skills/go.png"
+  #   summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
+  #   url: "https://golang.org/"
 
   - name: Kubernetes
     icon: "/images/sections/skills/kubernetes.png"
-    summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
+    summary: |
+      Capable of deploying and managing applications on Kubernetes. Experienced in writing Terraform and Helm processes to deploy infrastructure and applications.
     url: "https://kubernetes.io/"
 
   - name: Cloud Computing
     icon: "/images/sections/skills/cloud.png"
-    summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
+    summary: |
+      Lately, it's been Red Hat Openshift on private infra. When going public, AWS and DigitalOcean are my go-tos.
 
-  - name: Prometheus
-    icon: "/images/sections/skills/prometheus.png"
-    summary: "Capable of setup, configure Prometheus metrics. Experienced with PromQL, AlertManager. Also, experienced with writing metric exporters."
-    url: "https://prometheus.io/"
+  # - name: Prometheus
+  #   icon: "/images/sections/skills/prometheus.png"
+  #   summary: "Capable of setup, configure Prometheus metrics. Experienced with PromQL, AlertManager. Also, experienced with writing metric exporters."
+  #   url: "https://prometheus.io/"
 
-  - name: C++
-    icon: "/images/sections/skills/c++.png"
-    summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
+  # - name: C++
+  #   icon: "/images/sections/skills/c++.png"
+  #   summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
