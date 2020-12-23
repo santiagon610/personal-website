@@ -26,7 +26,7 @@ summary: |
 socialLinks:
   - name: Email
     icon: "fas fa-envelope"
-    url: "mailto:yo@santiago.wtf"
+    url: "yo@santiago.wtf"
   - name: Github
     icon: "fab fa-github"
     url: "https://www.github.com/santiagon610"
