@@ -17,10 +17,9 @@ jobs:
         uses: chrnorm/deployment-action@master
         id: deployment
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          description: "View site"
-          state: "in_progress"
-          environment: "production"
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          description: "production"
+          initial_status: "in_progress"
       - name: Build site with Hugo
         uses: chabad360/hugo-actions@master
         with:
@@ -29,17 +28,25 @@ jobs:
       - name: Upload site contents to Amazon S3
         uses: shallwefootball/s3-upload-action@master
         with:
-          aws_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          aws_key_id: "${{ secrets.AWS_KEY_ID }}"
+          aws_secret_access_key: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+          aws_bucket: "${{ secrets.AWS_BUCKET }}"
           source_dir: "public"
           destination_dir: ""
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          target_url: ${{ secrets.HUGO_BASE_URL }}
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          description: "production"
+          target_url: "${{ secrets.HUGO_BASE_URL }}"
           state: "success"
-          environment: "production"
+          deployment_id: "${{ steps.deployment.outputs.deployment_id }}"
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          target_url: "${{ secrets.HUGO_BASE_URL }}"
+          state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
