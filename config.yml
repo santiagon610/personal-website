@@ -2,6 +2,7 @@ baseURL: "/"
 languageCode: en-us
 title: "Nicholas Santiago"
 theme: "toha"
+uglyurls: true
 
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/

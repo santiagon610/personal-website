@@ -8,4 +8,5 @@ fi
 
 aws sts get-caller-identity | jq
 hugo
-aws s3 sync .public/ "$S3_PERSONAL_SITE"
+aws s3 sync ./public/ "s3://$S3_PERSONAL_SITE/"
+rm -rf .public/
