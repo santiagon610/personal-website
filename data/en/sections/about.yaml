@@ -1,0 +1,64 @@
+# section information
+section:
+  name: About
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+# your designation
+designation: Senior DevSecOps Architect
+# your company information
+company:
+  name: Cigna
+  url: "https://www.cigna.com/"
+
+# your resume. this file path should be relative to you "static" directory
+resume: "files/resume.pdf"
+
+# a summary about you
+summary: |
+  I am a security-centric DevOps Engineer with over 15 years of Linux 
+  experience. My love for Linux, continuous delivery, containerization, 
+  and web services knows no bounds.
+
+socialLinks:
+  - name: Email
+    icon: "fas fa-envelope"
+    url: "mailto:yo@santiago.wtf"
+  - name: Github
+    icon: "fab fa-github"
+    url: "https://www.github.com/santiagon610"
+  - name: LinkedIn
+    icon: "fab fa-linkedin"
+    url: "https://linkedin.com/in/nicholassantiago"
+  - name: Twitter
+    icon: "fab fa-twitter"
+    url: "https://twitter.com/santiagon610"
+  - name: Instagram
+    icon: "fab fa-instagram"
+    url: "https://instagram.com/santiagon610"
+
+# your soft skills
+# give the percentage between 50 to 100 with 5 intervals.
+# currently supported colors: blue, yellow, pink, green, sky, orange
+softSkills:
+  - name: Learning
+    percentage: 85
+    color: blue
+  - name: Doing
+    percentage: 90
+    color: yellow
+  - name: Teaching
+    percentage: 90
+    color: pink
+  - name: Humor
+    percentage: 85
+    color: green
+  - name: Snark
+    percentage: 80
+    color: sky
+  - name: Sarcasm
+    percentage: 100
+    color: orange
