@@ -5,11 +5,7 @@ section:
   enable: true
   weight: 2
   showOnNavbar: true
-  # Can optionally hide the title in sections
-  # hideTitle: true
 
-# Your Skills.
-# Give a summary of you each skill in the summary section.
 skills:
   - name: Linux
     icon: "/images/sections/skills/linux.png"
@@ -32,27 +28,26 @@ skills:
       It works in my container. It's the 2018 equivalent of "but it works in my local," and I'm not even ashamed.
     url: "https://www.docker.com/"
 
-  # - name: Go Development
-  #   icon: "/images/sections/skills/go.png"
-  #   summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
-  #   url: "https://golang.org/"
-
   - name: Kubernetes
     icon: "/images/sections/skills/kubernetes.png"
     summary: |
       Capable of deploying and managing applications on Kubernetes. Experienced in writing Terraform and Helm processes to deploy infrastructure and applications.
     url: "https://kubernetes.io/"
 
-  - name: Cloud Computing
-    icon: "/images/sections/skills/cloud.png"
+  - name: Amazon Web Services
+    icon: "/images/sections/skills/aws.svg"
     summary: |
-      Lately, it's been Red Hat Openshift on private infra. When going public, AWS and DigitalOcean are my go-tos.
+      This site is hosted in AWS. Lots of my projects run in AWS. It's all orchestrated programmatically and just works.
+    url: "https://aws.amazon.com/"
 
-  # - name: Prometheus
-  #   icon: "/images/sections/skills/prometheus.png"
-  #   summary: "Capable of setup, configure Prometheus metrics. Experienced with PromQL, AlertManager. Also, experienced with writing metric exporters."
-  #   url: "https://prometheus.io/"
+  - name: Ansible
+    icon: "/images/sections/skills/ansible.svg"
+    summary: |
+      Automate everything. Don't use agents. Ansible made many years of working on infrastructure easier, and is still one of my favorite tools on the belt.
+    url: "https://ansible.com/"
 
-  # - name: C++
-  #   icon: "/images/sections/skills/c++.png"
-  #   summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
+  - name: Terraform
+    icon: "/images/sections/skills/terraform.png"
+    summary: |
+      Programmatically building and enforcing state of infrastructure by running a simple pipeline is pure and utter magic. This is a huge part of why I love Terraform.
+    url: "https://terraform.io/"

@@ -11,8 +11,6 @@ section:
 designation: Senior DevSecOps Architect
 # your company information
 company:
-  # name: Evernorth
-  # url: "https://www.evernorth.com"
   name: Cigna
   url: "https://www.cigna.com/"
 
@@ -64,10 +62,3 @@ softSkills:
   - name: Sarcasm
     percentage: 100
     color: orange
-# you can also provide color code instead of pre-defined color name
-# - name: Example 1
-#   percentage: 75
-#   color: "#00adb5"
-# - name: Example 2
-#   percentage: 65
-#   color: "#8b8383"

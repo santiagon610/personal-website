@@ -1,0 +1,27 @@
+name: Build Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@main
+        with:
+          submodules: true
+      - name: Build site with Hugo
+        uses: chabad360/hugo-actions@master
+        with:
+          buildPath: "public"
+          args: "-b ${{ secrets.HUGO_BASE_URL }}"
+      - name: Upload site contents to Amazon S3
+        uses: shallwefootball/s3-upload-action@master
+        with:
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          source_dir: "public"

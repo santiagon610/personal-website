@@ -5,33 +5,9 @@ section:
   enable: true
   weight: 3
   showOnNavbar: true
-  # Can optionally hide the title in sections
-  # hideTitle: true
 
 # Your experiences
 experiences:
-  # - company:
-  #     name: Evernorth
-  #     url: "https://www.evernorth.com"
-  #     location: Bloomfield, CT, USA
-  #     overview: |
-  #       Evernorth brings powerful health services capabilities and solutions
-  #       together to unlock new potential. New value. To help individuals,
-  #       businesses, and their employees, we make progress at work and in life.
-  #   positions:
-  #     - designation: Architecture Senior Advisor, Digital DevSecOps
-  #       start: May, 2021
-  #       # don't provide end date if you are currently working there. It will be replaced by "Present"
-  #       # end: Dec 2020
-  #       # give some points about what was your responsibilities at the company.
-  #       responsibilities:
-  #         - "I work predominantly on helping deliver our 
-  #         customer-facing web entities to the market quickly and iteratively.
-  #         With a greater emphasis towards containerization and cloud-native
-  #         architecture, I work with my delivery partners in their efforts to move
-  #         applications to containers, and provide self-service tools to move
-  #         their applications to a combination of public and private cloud
-  #         infrastructures."
   - company:
       name: Cigna
       url: "https://www.cigna.com"
@@ -43,9 +19,6 @@ experiences:
     positions:
       - designation: Architecture Senior Advisor, Digital DevSecOps
         start: November, 2019
-        # don't provide end date if you are currently working there. It will be replaced by "Present"
-        # end: April, 2021
-        # give some points about what was your responsibilities at the company.
         responsibilities:
           - "I work predominantly on helping deliver our 
           customer-facing web entities to the market quickly and iteratively.
@@ -92,7 +65,6 @@ experiences:
             for improvement within the company’s infrastructure."
   - company:
       name: RealTech, LLC
-      # url: "https://www.intern.com"
       location: West Chester, OH, USA
       overview: |
         RealTech is a custom software development company that builds advanced
