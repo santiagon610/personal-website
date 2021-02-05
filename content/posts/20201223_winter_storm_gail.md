@@ -1,7 +1,7 @@
 ---
 title: "Winter Storm Gail: A retrospective"
 date: 2020-12-23T00:00:00-04:00
-draft: true
+draft: false
 # hero: /images/posts/20201223_workvan.jpg
 hero: /images/posts/20201223_snowmageddon.jpg
 description: It's not often that I reconsider living in Pennsylvania. This last storm changed that.
