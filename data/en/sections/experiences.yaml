@@ -42,12 +42,12 @@ experiences:
         start: June, 2016
         end: July, 2018
         responsibilities:
-          - "In my role as Infrastructure Engineer, I work predominantly on 
-            automating processes currently being used by Cigna to improve uptime
-            and availability on customer-facing web entities, powered by IBM
-            WebSphere, Java with Spring Boot framework and Node.JS. This role
-            includes general Linux and Unix system administration, as well as
-            the design of waterfall-style and continuous delivery pipelines."
+          - "I work predominantly on automating processes currently being used
+            by Cigna to improve uptime and availability on customer-facing web
+            entities, powered by IBM WebSphere, Java with Spring Boot framework
+            and Node.JS. This role includes general Linux and Unix system
+            administration, as well as the design of waterfall-style and
+            continuous delivery pipelines."
   - company:
       name: ProctorFree
       url: "https://www.proctorfree.com"
@@ -83,18 +83,17 @@ experiences:
       location: Plymouth Meeting, PA, USA
       overview: |
         iFAX Solutions is the developer of HylaFAX Enterprise Edition, the world’s
-        most popular fax server software and the leading fax server for business. 
+        most popular fax server software and the leading fax server for business.
     positions:
       - designation: Technical Support Engineer
         start: December, 2012
         end: September, 2013
         responsibilities:
-          - As technical support engineer, I am responsible for the diagnosis and
-            repair of any hiccups that may occur in the HylaFAX software for our
-            clients, as well as providing appropriate care to the clients
-            themselves. In addition, I get to serve as a “jack of all trades,”
-            providing operational support for the core business of the company and
-            its secondary operating unit, TelephonyDepot.com.
+          - I am responsible for the diagnosis and repair of any hiccups that may
+            occur in the HylaFAX software for our clients, as well as providing
+            appropriate care to the clients themselves. In addition, I get to serve
+            as a “jack of all trades,” providing operational support for the core
+            business of the company and its secondary operating unit, TelephonyDepot.com.
   - company:
       name: Community Action Committee of the Lehigh Valley, Inc.
       url: "https://www.caclv.org"

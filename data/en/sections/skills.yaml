@@ -12,42 +12,53 @@ skills:
     summary: |
       On a day-to-day basis, my containers and servers run varied 
       distributions of Linux. Though I can run just about any desktop
-      operating system, Linux is my happy place.
+      operating system, Linux is my happy place. Red Hat, Debian, Alpine,
+      something else: no worries. Let's do this.
 
   - name: Git
     icon: "/images/sections/skills/git.png"
     summary: |
       Source control is the foundation of good continuous delivery.
-      While most comfortable in GitLab (and using its CI), I work in
-      GitHub as well.
+      While most comfortable in GitLab (and using its CI), I'm no
+      stranger to GitHub.
     url: "https://git-scm.com/"
 
   - name: Docker
     icon: "/images/sections/skills/docker.svg"
     summary: |
-      It works in my container. It's the 2018 equivalent of "but it works in my local," and I'm not even ashamed.
+      It works in my container. It's the 2018 equivalent of "but it
+      works on my local," and I'm not even ashamed. Being able to run
+      the same exact environment from local, to test, to production - is
+      key in ensuring a stable and predictable environment.
     url: "https://www.docker.com/"
 
   - name: Kubernetes
     icon: "/images/sections/skills/kubernetes.png"
     summary: |
-      Capable of deploying and managing applications on Kubernetes. Experienced in writing Terraform and Helm processes to deploy infrastructure and applications.
+      I can deploy applications on Kubernetes better than I can pronounce it.
+      I'm pretty sure that's more important, honestly. I have Helm and
+      Terraform to help me roll these apps out.
     url: "https://kubernetes.io/"
 
   - name: Amazon Web Services
     icon: "/images/sections/skills/aws.svg"
     summary: |
-      This site is hosted in AWS. Lots of my projects run in AWS. It's all orchestrated programmatically and just works.
+      This site is hosted in AWS. Lots of my projects run in AWS. It's all
+      orchestrated programmatically and just works.
     url: "https://aws.amazon.com/"
 
   - name: Ansible
     icon: "/images/sections/skills/ansible.svg"
     summary: |
-      Automate everything. Don't use agents. Ansible made many years of working on infrastructure easier, and is still one of my favorite tools on the belt.
+      Automate everything. Don't install agents. Ansible made many years of
+      working on infrastructure easier, and is still one of my favorite
+      tools on the belt.
     url: "https://ansible.com/"
 
   - name: Terraform
     icon: "/images/sections/skills/terraform.png"
     summary: |
-      Programmatically building and enforcing state of infrastructure by running a simple pipeline is pure and utter magic. This is a huge part of why I love Terraform.
+      Programmatically building and enforcing state of infrastructure by
+      running a simple pipeline is pure and utter magic. This is a huge
+      part of why I love Terraform.
     url: "https://terraform.io/"
