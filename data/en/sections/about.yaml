@@ -15,7 +15,7 @@ company:
   url: "https://www.cigna.com/"
 
 # your resume. this file path should be relative to you "static" directory
-resume: "files/resume.pdf"
+resume: "files/nicholas_santiago_resume.pdf"
 
 # a summary about you
 summary: |
