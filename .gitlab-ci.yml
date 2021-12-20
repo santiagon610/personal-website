@@ -1,0 +1,105 @@
+---
+default:
+  tags:
+    - kubernetes
+
+variables:
+  HUGO_DOWNLOAD_URL: "https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Linux-64bit.tar.gz"
+
+stages:
+  - build
+  - test
+  - deploy
+
+.build:s3:
+  stage: build
+  image: klakegg/hugo:ext-alpine
+  before_script:
+    - apk add --update-cache --upgrade curl p7zip
+  script:
+    - hugo version
+    - hugo -b $HUGO_BASE_URL
+    - ls -alh ./public/
+    - 7z a $CI_PROJECT_DIR/site.7z $CI_PROJECT_DIR/public/*
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/site.7z
+    expire_in: 1 hour
+
+build:kaniko:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/Dockerfile
+      --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+      --build-arg CI_PROJECT_DIR="$CI_PROJECT_DIR"
+
+tag:kaniko:
+  stage: test
+  image:
+    name: quay.io/skopeo/stable:latest
+    entrypoint: ["/bin/sh", "-c"]
+  script:
+    - skopeo login -u $CI_REGISTRY_USER -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - skopeo copy docker://$CI_REGISTRY/$CI_PROJECT_PATH:$CI_COMMIT_SHORT_SHA docker://$CI_REGISTRY/$CI_PROJECT_PATH:latest
+  only:
+    - main
+    - master
+  needs:
+    - build:kaniko
+
+.deploy:s3:
+  stage: deploy
+  image: git.iwcg.io:5050/hlv/dockerfiles/hlv-kubetools:latest
+  script:
+    - aws sts get-caller-identity
+    - mkdir -p /tmp/$CI_PROJECT_NAME
+    - 7z x -o/tmp/$CI_PROJECT_NAME site.7z &&
+    - aws s3 sync /tmp/$CI_PROJECT_NAME/. s3://$AWS_S3_BUCKET/
+  allow_failure: false
+
+# build:s3:dev:
+#   extends: .build:s3
+#   environment:
+#     name: dev
+#     url: https://dev.wedointhis2022.com
+#   variables:
+#     HUGO_BASE_URL: "https://dev.wedointhis2022.com"
+#   only:
+#     - develop
+
+build:s3:prod:
+  extends: .build:s3
+  environment:
+    name: prod
+    url: https://nicholas.santiago.wtf
+  variables:
+    HUGO_BASE_URL: "https://nicholas.santiago.wtf"
+  only:
+    - main
+
+# deploy:s3:dev:
+#   extends: .deploy:s3
+#   environment:
+#     name: dev
+#   needs:
+#     - job: build:s3:dev
+#       artifacts: true
+#   only:
+#     - develop
+
+deploy:s3:prod:
+  extends: .deploy:s3
+  environment:
+    name: prod
+  needs:
+    - job: build:s3:prod
+      artifacts: true
+  only:
+    - main

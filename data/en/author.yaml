@@ -1,7 +1,8 @@
 name: "Nicholas Santiago"
-nickname: "Nick"
+nickname: "Nick."
 greeting: "Hi, I'm"
 image: "images/author/nick-2019_cigna_headshot.jpeg"
+# image: "images/author/nick-2021_btfd_uniform.jpeg"
 contactInfo:
   email: "yo@santiago.wtf"
   phone: "+1 215 800-0045"
