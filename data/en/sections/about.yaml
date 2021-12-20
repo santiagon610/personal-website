@@ -11,8 +11,8 @@ section:
 designation: Senior DevSecOps Architect
 # your company information
 company:
-  name: Cigna
-  url: "https://www.cigna.com/"
+  name: Evernorth
+  url: "https://www.evernorth.com/"
 
 # your resume. this file path should be relative to you "static" directory
 resume: "files/nicholas_santiago_resume.pdf"

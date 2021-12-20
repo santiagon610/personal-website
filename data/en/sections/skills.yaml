@@ -35,25 +35,20 @@ skills:
   - name: Kubernetes
     icon: "/images/sections/skills/kubernetes.png"
     summary: |
-      I can deploy applications on Kubernetes better than I can pronounce it.
-      I'm pretty sure that's more important, honestly. I have Helm and
-      Terraform to help me roll these apps out.
+      This site is running on an Nginx container inside a Kubernetes
+      cluster, and runs on nearly no resources. The ability to cluster
+      applications together to drive efficiency and best spend of compute
+      excites me.
     url: "https://kubernetes.io/"
 
   - name: Amazon Web Services
     icon: "/images/sections/skills/aws.svg"
     summary: |
-      This site is hosted in AWS. Lots of my projects run in AWS. It's all
-      orchestrated programmatically and just works.
+      Most of my production workloads run in AWS, using its wide variety of
+      managed products. Whether I'm using EC2 VMs, an EKS cluster, CloudFront
+      distributions in front of S3 storage for static content, AWS usually has
+      something to offer me to efficiently deliver my product.
     url: "https://aws.amazon.com/"
-
-  - name: Ansible
-    icon: "/images/sections/skills/ansible.svg"
-    summary: |
-      Automate everything. Don't install agents. Ansible made many years of
-      working on infrastructure easier, and is still one of my favorite
-      tools on the belt.
-    url: "https://ansible.com/"
 
   - name: Terraform
     icon: "/images/sections/skills/terraform.png"
@@ -62,3 +57,19 @@ skills:
       running a simple pipeline is pure and utter magic. This is a huge
       part of why I love Terraform.
     url: "https://terraform.io/"
+
+  - name: Ansible
+    icon: "/images/sections/skills/ansible.svg"
+    summary: |
+      Automate everything. Don't install agents. Ansible made many years of
+      working on virtual machines and consuming REST APIs easier, and is still
+      one of my favorite tools on the belt.
+    url: "https://ansible.com/"
+
+  - name: Python
+    icon: "/images/sections/skills/python.svg"
+    summary: |
+      Admittedly, I'm a noob at any real development language, but Python is the
+      one that makes the most sense to me at the moment and the one I'm working
+      hardest on learning.
+    url: "https://www.python.org/"
