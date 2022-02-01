@@ -4,12 +4,14 @@ default:
     - kubernetes
 
 variables:
-  HUGO_DOWNLOAD_URL: "https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Linux-64bit.tar.gz"
+  HUGO_DOWNLOAD_URL: "https://github.com/gohugoio/hugo/releases/download/v0.92.1/hugo_extended_0.92.1_Linux-64bit.tar.gz"
 
 stages:
   - build
   - test
   - deploy
+
+# Non-Prod Build
 
 .build:s3:
   stage: build
@@ -25,34 +27,8 @@ stages:
     paths:
       - $CI_PROJECT_DIR/site.7z
     expire_in: 1 hour
-
-build:kaniko:
-  stage: build
-  image:
-    name: gcr.io/kaniko-project/executor:debug
-    entrypoint: [""]
-  script:
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor
-      --context $CI_PROJECT_DIR
-      --dockerfile $CI_PROJECT_DIR/Dockerfile
-      --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
-      --build-arg CI_PROJECT_DIR="$CI_PROJECT_DIR"
-
-tag:kaniko:
-  stage: test
-  image:
-    name: quay.io/skopeo/stable:latest
-    entrypoint: ["/bin/sh", "-c"]
-  script:
-    - skopeo login -u $CI_REGISTRY_USER -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - skopeo copy docker://$CI_REGISTRY/$CI_PROJECT_PATH:$CI_COMMIT_SHORT_SHA docker://$CI_REGISTRY/$CI_PROJECT_PATH:latest
-  only:
+  except:
     - main
-    - master
-  needs:
-    - build:kaniko
 
 .deploy:s3:
   stage: deploy
@@ -63,6 +39,10 @@ tag:kaniko:
     - 7z x -o/tmp/$CI_PROJECT_NAME site.7z &&
     - aws s3 sync /tmp/$CI_PROJECT_NAME/. s3://$AWS_S3_BUCKET/
   allow_failure: false
+  except:
+    - main
+
+# Prod Build
 
 build:s3:prod:
   extends: .build:s3
