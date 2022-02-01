@@ -64,16 +64,6 @@ tag:kaniko:
     - aws s3 sync /tmp/$CI_PROJECT_NAME/. s3://$AWS_S3_BUCKET/
   allow_failure: false
 
-# build:s3:dev:
-#   extends: .build:s3
-#   environment:
-#     name: dev
-#     url: https://dev.wedointhis2022.com
-#   variables:
-#     HUGO_BASE_URL: "https://dev.wedointhis2022.com"
-#   only:
-#     - develop
-
 build:s3:prod:
   extends: .build:s3
   environment:
@@ -83,16 +73,6 @@ build:s3:prod:
     HUGO_BASE_URL: "https://nicholas.santiago.wtf"
   only:
     - main
-
-# deploy:s3:dev:
-#   extends: .deploy:s3
-#   environment:
-#     name: dev
-#   needs:
-#     - job: build:s3:dev
-#       artifacts: true
-#   only:
-#     - develop
 
 deploy:s3:prod:
   extends: .deploy:s3
