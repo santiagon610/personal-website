@@ -11,8 +11,7 @@ stages:
   - test
   - deploy
 
-# Non-Prod Build
-
+# Jobs
 .build:s3:
   stage: build
   image: klakegg/hugo:ext-alpine
@@ -27,8 +26,6 @@ stages:
     paths:
       - $CI_PROJECT_DIR/site.7z
     expire_in: 1 hour
-  except:
-    - main
 
 .deploy:s3:
   stage: deploy
@@ -39,11 +36,8 @@ stages:
     - 7z x -o/tmp/$CI_PROJECT_NAME site.7z &&
     - aws s3 sync /tmp/$CI_PROJECT_NAME/. s3://$AWS_S3_BUCKET/
   allow_failure: false
-  except:
-    - main
 
 # Prod Build
-
 build:s3:prod:
   extends: .build:s3
   environment:
