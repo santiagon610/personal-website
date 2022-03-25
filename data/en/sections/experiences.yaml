@@ -8,30 +8,30 @@ section:
 
 # Your experiences
 experiences:
-  - company:
-      name: Evernorth
-      url: "https://www.evernorth.com"
-      location: Bloomfield, CT, USA
-      overview: |
-        Evernorth, a Cigna company, exists to elevate health for all, because health
-        is the starting point for human potential and progress. As champions for
-        affordable, predictable and simple health care, we solve the problems others
-        don't, won't or can't.
-    positions:
-      - designation: Senior DevSecOps Architect, Digital Engineering
-        start: January, 2022
-        responsibilities:
-          - Accelerate software delivery by provisioning infrastructure in public
-            and private clouds using a gallimaufry of tools, including Terraform
-            and Ansible.
-          - Author self-service tools to help application delivery teams deliver new
-            applications, ensure appropriate security scanning, and SOC2 compliance.
-          - Create and maintain CI/CD processes and patterns for Angular.JS, React.JS,
-            Node.JS, Java, Go, and Python applications in an assortment of orchestrators.
-          - Serve as custodian for role-based access control for a delivery team of
-            approximately 200 persons, including stateside and offshore personnel.
-          - Manage an early career technical professional through their first foray into
-            the space of DevOps engineering.
+  # - company:
+  #     name: Evernorth
+  #     url: "https://www.evernorth.com"
+  #     location: Bloomfield, CT, USA
+  #     overview: |
+  #       Evernorth, a Cigna company, exists to elevate health for all, because health
+  #       is the starting point for human potential and progress. As champions for
+  #       affordable, predictable and simple health care, we solve the problems others
+  #       don't, won't or can't.
+  #   positions:
+  #     - designation: Senior DevSecOps Architect, Digital Engineering
+  #       start: January, 2022
+  #       responsibilities:
+  #         - Accelerate software delivery by provisioning infrastructure in public
+  #           and private clouds using a gallimaufry of tools, including Terraform
+  #           and Ansible.
+  #         - Author self-service tools to help application delivery teams deliver new
+  #           applications, ensure appropriate security scanning, and SOC2 compliance.
+  #         - Create and maintain CI/CD processes and patterns for Angular.JS, React.JS,
+  #           Node.JS, Java, Go, and Python applications in an assortment of orchestrators.
+  #         - Serve as custodian for role-based access control for a delivery team of
+  #           approximately 200 persons, including stateside and offshore personnel.
+  #         - Manage an early career technical professional through their first foray into
+  #           the space of DevOps engineering.
   - company:
       name: Cigna
       url: "https://www.cigna.com"
@@ -43,7 +43,7 @@ experiences:
     positions:
       - designation: Architecture Senior Advisor, Digital DevSecOps
         start: November, 2019
-        end: December, 2021
+        # end: December, 2021
         responsibilities:
           - I work predominantly on helping deliver our 
             customer-facing web entities to the market quickly and iteratively.
