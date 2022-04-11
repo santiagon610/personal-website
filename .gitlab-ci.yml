@@ -29,7 +29,7 @@ stages:
 
 .deploy:s3:
   stage: deploy
-  image: git.iwcg.io:5050/hlv/dockerfiles/hlv-kubetools:latest
+  image: registry.coreinfra.cloud/hlv/dockerfiles/hlv-kubetools:latest
   script:
     - aws sts get-caller-identity
     - mkdir -p /tmp/$CI_PROJECT_NAME
