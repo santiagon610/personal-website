@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <script src="https://cdn.lr-in.com/LogRocket.min.js" crossorigin="anonymous"></script>
-    <script>window.LogRocket && window.LogRocket.init('xn6ipm/nicholassantiagowtf');</script>    
+    <script>window.LogRocket && window.LogRocket.init('xn6ipm/nicholassantiagowtf');</script>
     <title>{{- .Site.Title -}}</title>
     {{ $siteDescription := .Site.Params.description }}
     {{ if (index .Site.Data .Site.Language.Lang).site }}
@@ -15,6 +15,9 @@
     
     <!-- import common headers -->
     {{- partial "header.html" . -}}
+
+    <!-- humans -->
+    <link rel="author" href="/humans.txt" />
 
     <!-- import index page specific headers -->
     <link rel="stylesheet" href="{{ "/assets/css/sections/home.css" | relURL }}"/>

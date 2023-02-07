@@ -1,0 +1,14 @@
+/* TEAM */
+
+Nicholas Santiago
+Site: https://nicholas.santiago.wtf/
+Email: yo@santiago.wtf
+Twitter: @santiagon610
+Mastodon: https://mastodon.lol/@santiagon610
+Location: Philadelphia, PA, USA
+
+/* THANKS */
+Toha Theme: https://github.com/hugo-toha/toha
+
+/* SITE */
+Software: Hugo, GitLab
