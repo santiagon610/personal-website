@@ -33,7 +33,7 @@ experiences:
   #         - Manage an early career technical professional through their first foray into
   #           the space of DevOps engineering.
   - company:
-      name: Cigna
+      name: Cigna Healthcare
       url: "https://www.cigna.com"
       location: Bloomfield, CT, USA
       overview: |
@@ -57,12 +57,12 @@ experiences:
         end: November, 2019
         responsibilities:
           - "I work predominantly on helping deliver our 
-          customer-facing web entities to the market quickly and iteratively.
-          With a greater emphasis towards containerization and cloud-native
-          architecture, I work with my delivery partners in their efforts to move
-          applications to containers, and provide self-service tools to move
-          their applications to a combination of public and private cloud
-          infrastructures."
+            customer-facing web entities to the market quickly and iteratively.
+            With a greater emphasis towards containerization and cloud-native
+            architecture, I work with my delivery partners in their efforts to move
+            applications to containers, and provide self-service tools to move
+            their applications to a combination of public and private cloud
+            infrastructures."
       - designation: Infrastructure Engineer Senior Specialist
         start: June, 2016
         end: July, 2018
