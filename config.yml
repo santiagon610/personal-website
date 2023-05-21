@@ -35,8 +35,8 @@ enableEmoji: true
 
 # Site parameters
 params:
-  # background: /images/site/jacob-culp-Er8vHjj6HPo-unsplash.jpg
-  background: /images/site/bethlehem_downtown.jpg
+  background: /images/site/jacob-culp-Er8vHjj6HPo-unsplash.jpg
+  # background: /images/site/bethlehem_downtown.jpg
   logo:
     main: /images/author/nick-avataaars-suit.png
     inverted: /images/author/nick-avataaars-suit.png
