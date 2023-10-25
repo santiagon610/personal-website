@@ -1,3 +1,4 @@
+---
 # section information
 section:
   name: Skills
@@ -10,7 +11,7 @@ skills:
   - name: Linux
     icon: "/images/sections/skills/linux.png"
     summary: |
-      On a day-to-day basis, my containers and servers run varied 
+      On a day-to-day basis, my containers and servers run varied
       distributions of Linux. Though I can run just about any desktop
       operating system, Linux is my happy place. Red Hat, Debian, Alpine,
       something else: no worries. Let's do this.
@@ -35,10 +36,10 @@ skills:
   - name: Kubernetes
     icon: "/images/sections/skills/kubernetes.png"
     summary: |
-      This site is running on an Nginx container inside a Kubernetes
-      cluster, and runs on nearly no resources. The ability to cluster
-      applications together to drive efficiency and best spend of compute
-      excites me.
+      While at first, it cost me a lot of sleep, Kubernetes has since become
+      the thing that helps me sleep at night. Its declarative nature of
+      managing deployed apps, and plethora of sysadmin tools, have made me
+      come to embrace the abstract.
     url: "https://kubernetes.io/"
 
   - name: Amazon Web Services

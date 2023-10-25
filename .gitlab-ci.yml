@@ -4,12 +4,29 @@ default:
     - kubernetes
 
 variables:
-  HUGO_DOWNLOAD_URL: "https://github.com/gohugoio/hugo/releases/download/v0.92.1/hugo_extended_0.92.1_Linux-64bit.tar.gz"
+  HUGO_DOWNLOAD_URL: "https://github.com/gohugoio/hugo/releases/download/v0.119.0/hugo_0.119.0_Linux-64bit.tar.gz"
 
 stages:
+  - lint
   - build
-  - test
   - deploy
+
+# Lint
+lint:yaml:
+  image: registry.coreinfra.cloud/hlv/dockerfiles/hlv-linter:latest
+  stage: lint
+  variables:
+    YAMLLINT_CONFIG_FILE: "${CI_PROJECT_DIR}/.gitlab/yamllint.yaml"
+  script:
+    - "yamllint ."
+  only:
+    refs:
+      - main
+      - merge_requests
+    changes:
+      - "**/*.yaml"
+      - "**/*.yml"
+  allow_failure: false
 
 # Jobs
 .build:s3:

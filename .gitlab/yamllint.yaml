@@ -1,0 +1,10 @@
+---
+extends: default
+
+rules:
+  document-start:
+    level: warning
+  line-length: disable
+
+ignore: |
+  themes/toha/

@@ -1,3 +1,4 @@
+---
 # section information
 section:
   name: Projects
@@ -14,8 +15,6 @@ buttons:
     filter: "certification"
   - name: Professional
     filter: "professional"
-  # - name: Hobby
-  #   filter: "hobby"
 
 # your projects
 projects:

@@ -1,3 +1,4 @@
+---
 # section information
 section:
   name: About
@@ -19,8 +20,8 @@ resume: "files/nicholas_santiago_resume.pdf"
 
 # a summary about you
 summary: |
-  I am a security-centric DevOps Engineer with over 15 years of Linux 
-  experience. My love for Linux, continuous delivery, containerization, 
+  I am a security-centric DevOps Engineer with over 15 years of Linux
+  experience. My love for Linux, continuous delivery, containerization,
   and web services knows no bounds.
 
 socialLinks:
