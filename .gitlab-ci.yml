@@ -38,10 +38,21 @@ lint:yaml:
     - hugo version
   script:
     - hugo -b $HUGO_BASE_URL
-    - hugo deploy --target=${HUGO_DEPLOY_TARGET}
+    - >
+      if [ "${CI_COMMIT_BRANCH}" == "${CI_DEFAULT_BRANCH}" ]; then
+        echo "🟢 Current branch is ${CI_COMMIT_BRANCH}"
+        echo "🟢 Default branch is ${CI_DEFAULT_BRANCH}"
+        echo "🟢 Running Hugo deploy"
+        hugo deploy --target=${HUGO_DEPLOY_TARGET}
+      else
+        echo "🟢 Current branch is ${CI_COMMIT_BRANCH}"
+        echo "🟡 Default branch is ${CI_DEFAULT_BRANCH}"
+        echo "ℹ️ Performing dry run of Hugo"
+        hugo deploy --target=${HUGO_DEPLOY_TARGET} --dryRun
+      fi
 
-# Prod Build
-hugo:s3:prod:
+# Build
+hugo:s3:
   extends: .hugo
   environment:
     name: prod
@@ -49,5 +60,3 @@ hugo:s3:prod:
   variables:
     HUGO_BASE_URL: "https://nicholas.santiago.wtf"
     HUGO_DEPLOY_TARGET: production
-  only:
-    - main
