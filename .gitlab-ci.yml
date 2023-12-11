@@ -1,9 +1,11 @@
 ---
 default:
+  image: registry.coreinfra.cloud/hlv/dockerfiles/hlv-hugo-aws:latest
   tags:
     - kubernetes
 
 variables:
+  GIT_SUBMODULE_STRATEGY: recursive
   HUGO_DOWNLOAD_URL: "https://github.com/gohugoio/hugo/releases/download/v0.119.0/hugo_0.119.0_Linux-64bit.tar.gz"
 
 stages:
@@ -29,48 +31,23 @@ lint:yaml:
   allow_failure: false
 
 # Jobs
-.build:s3:
-  stage: build
-  image: klakegg/hugo:ext-alpine
-  before_script:
-    - apk add --update-cache --upgrade curl p7zip
-  script:
-    - hugo version
-    - hugo -b $HUGO_BASE_URL
-    - ls -alh ./public/
-    - 7z a $CI_PROJECT_DIR/site.7z $CI_PROJECT_DIR/public/*
-  artifacts:
-    paths:
-      - $CI_PROJECT_DIR/site.7z
-    expire_in: 1 hour
-
-.deploy:s3:
+.hugo:
   stage: deploy
-  image: registry.coreinfra.cloud/hlv/dockerfiles/hlv-kubetools:latest
-  script:
+  before_script:
     - aws sts get-caller-identity
-    - mkdir -p /tmp/$CI_PROJECT_NAME
-    - 7z x -o/tmp/$CI_PROJECT_NAME site.7z &&
-    - aws s3 sync /tmp/$CI_PROJECT_NAME/. s3://$AWS_S3_BUCKET/
-  allow_failure: false
+    - hugo version
+  script:
+    - hugo -b $HUGO_BASE_URL
+    - hugo deploy --target=${HUGO_DEPLOY_TARGET}
 
 # Prod Build
-build:s3:prod:
-  extends: .build:s3
+hugo:s3:prod:
+  extends: .hugo
   environment:
     name: prod
     url: https://nicholas.santiago.wtf
   variables:
     HUGO_BASE_URL: "https://nicholas.santiago.wtf"
-  only:
-    - main
-
-deploy:s3:prod:
-  extends: .deploy:s3
-  environment:
-    name: prod
-  needs:
-    - job: build:s3:prod
-      artifacts: true
+    HUGO_DEPLOY_TARGET: production
   only:
     - main

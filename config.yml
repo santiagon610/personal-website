@@ -5,6 +5,12 @@ title: "Nicholas Santiago"
 theme: "toha"
 uglyurls: true
 
+deployment:
+  targets:
+    - name: production
+      url: "s3://cdn-santiago-wtf"
+      cloudfrontDistributionID: "E3KUE9JTEXQFKV"
+
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
 languages:
