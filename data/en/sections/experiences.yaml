@@ -10,6 +10,27 @@ section:
 # Your experiences
 experiences:
   - company:
+      name: GeneDx
+      url: "https://www.genedx.com"
+      location: Gaithersburg, MD, USA
+      overview: |
+        GeneDx believes that everyone deserves personalized, targeted medical
+        care - and that it all begins with a genetic diagnosis. Fueled by one
+        of the world's largest rare disease data sets, world's largest rare
+        disease data sets, our exome and genome tests translate complex
+        genomic data into clinical answers. It all starts with a single test.
+    positions:
+      - designation: Senior DevOps Engineer
+        start: June, 2024
+        responsibilities:
+          - Ensure uptime and resiliency of customer- and workforce-facing web
+            applications in a multi-cloud Kubernetes environment.
+          - Migrate applications from multiple cloud environments of predecessor
+            companies to a central environment, establishing CI/CD processes for
+            container builds, application deployments, and IaC definition.
+          - Accelerate application delivery by forging partnerships with
+            application teams, and by mentoring application developers.
+  - company:
       name: Evernorth Health Services
       url: "https://www.evernorth.com"
       location: Bloomfield, CT, USA
@@ -21,7 +42,8 @@ experiences:
         can't.
     positions:
       - designation: Architecture Senior Advisor, Digital Platform Engineering
-        start: January, 2022
+        start: March, 2024
+        end: June, 2024
         responsibilities:
           - Accelerate software delivery by provisioning infrastructure in public
             and private clouds using a gallimaufry of tools, including Terraform
@@ -46,6 +68,7 @@ experiences:
     positions:
       - designation: Architecture Senior Advisor, Digital Platform Engineering
         start: January, 2022
+        end: March, 2024
         responsibilities:
           - Accelerate software delivery by provisioning infrastructure in public
             and private clouds using a gallimaufry of tools, including Terraform

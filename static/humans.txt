@@ -4,7 +4,7 @@ Nicholas Santiago
 Site: https://nicholas.santiago.wtf/
 Email: yo@santiago.wtf
 Twitter: @santiagon610
-Mastodon: https://mastodon.lol/@santiagon610
+Mastodon: https://mastodon.social/@santiagon610
 Location: Philadelphia, PA, USA
 
 /* THANKS */

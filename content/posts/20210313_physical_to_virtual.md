@@ -11,7 +11,7 @@ menu:
   sidebar:
     name: "Migrating physical PCs to VMs"
     identifier: physical-to-virtual
-    weight: 9995
+    weight: -4
 tags:
   [
     "clonezilla",

@@ -9,7 +9,7 @@ menu:
   sidebar:
     name: "Winter Storm Gail 2020"
     identifier: winter-storm-gail
-    weight: 9998
+    weight: -2
 ---
 
 It's not often that I reconsider living in Pennsylvania. But when a storm that [brings Jim Cantore (of The Weather Channel fame) to the Lehigh Valley for storm coverage](https://www.mcall.com/news/weather/mc-nws-jim-cantore-allentown-winter-storm-20201215-jwvxnk4fqngeban34cjsbjyyi4-story.html), I quickly came to realize that my hometown was likely to disappear within a few short hours.

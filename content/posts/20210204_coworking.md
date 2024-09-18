@@ -8,7 +8,7 @@ menu:
   sidebar:
     name: "I missed working with humans."
     identifier: coworking
-    weight: 9996
+    weight: -3
 ---
 
 Admittedly, I've been working as a "remote" resource pretty consistently since 2014. And I realize that there were historically two different types of remote workers: the hermits with the insane home workstation, and the folks who left the house every morning to just set up shop at Starbucks. I was a mix of both, but would lean more towards the prior.
