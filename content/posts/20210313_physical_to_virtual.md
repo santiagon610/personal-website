@@ -13,18 +13,16 @@ menu:
     identifier: physical-to-virtual
     weight: -4
 tags:
-  [
-    "clonezilla",
-    "virtualization",
-    "windows_xp",
-    "virtio",
-    "proxmox",
-    "red_hat",
-    "digital_transformation",
-    "splashtop",
-    "remote_work",
-    "wfh",
-  ]
+  - clonezilla
+  - digital_transformation
+  - proxmox
+  - red_hat
+  - remote_work
+  - splashtop
+  - virtio
+  - virtualization
+  - wfh
+  - windows_xp
 ---
 
 I recently finished up a digital transformation for an existing customer with all the trimmings on their desktop and laptop PCs, and thought that I did a fantastic job. That was until they told me that they needed to get data off their old machines, and run some business software from their old machines until we could get the applications migrated.
