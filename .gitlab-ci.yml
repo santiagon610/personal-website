@@ -6,7 +6,7 @@ default:
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-  HUGO_DOWNLOAD_URL: "https://github.com/gohugoio/hugo/releases/download/v0.119.0/hugo_0.119.0_Linux-64bit.tar.gz"
+  HUGO_DOWNLOAD_URL: "https://github.com/gohugoio/hugo/releases/download/v0.134.2/hugo_extended_0.134.2_linux-amd64.tar.gz"
 
 stages:
   - lint
