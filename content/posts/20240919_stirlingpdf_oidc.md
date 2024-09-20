@@ -25,9 +25,38 @@ I've spent more time messing around with [Stirling PDF](https://github.com/Stirl
 
 So, some background first. Authentication for my homelab is currently run by [Jumpcloud](https://jumpcloud.com), since they're the best bang for buck for my small environment (~4 users). They give me a user portal, support SAML and OIDC SSO, have an LDAP connector in case I have legacy stuff that need that, and there's a [somewhat useful Terraform module](https://registry.terraform.io/providers/Paynetworx/jumpcloud/), albeit incomplete.
 
-That should work fine with Stirling PDF, now that there is OAuth2 capability since [v0.24.0](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.24.0). I figured that I would just get the redirect URIs, login URL, exchange client key and secret, and be done. Nope.
+> I should note that this isn't a criticism of Stirling PDF, Jumpcloud or the community members that made the Terraform module, but rather just a story of a mental block caused by my own paradigm paralysis and auto-pilot. In fact, I enjoy these tools so much that I'm signal boosting them on a blog that gets _tens_ of views every year.
+
+Anyway - all of that should work fine with Stirling PDF, now that there is OAuth2 capability since [v0.24.0](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v0.24.0). I figured that I would just get the redirect URIs, login URL, exchange client key and secret, and be done. Nope.
 
 I was met with weird errors all the way through, from the app not properly bootstrapping to environment vars being quoted when they shouldn't, so here's how I got it to work with Jumpcloud.
+
+## The Problem
+
+Once I figured out which variables were easier to define via environment vars versus populating the custom config file, I was getting 401 errors back in a gnarly looking stack trace once users federated in. This is an example of the trace:
+
+```plain
+2024-09-20 03:45:42,203 INFO s.s.S.c.s.s.CustomHttpSessionListener [qtp197711499-30] Session created: node0wmxprzcn9jzv1kmg3ww3q74rb0
+2024-09-20 03:46:14,820 ERROR s.s.S.c.s.o.CustomOAuth2AuthenticationFailureHandler [qtp197711499-51] OAuth2 Authentication error: invalid_token_response
+2024-09-20 03:46:14,821 ERROR s.s.S.c.s.o.CustomOAuth2AuthenticationFailureHandler [qtp197711499-51] OAuth2AuthenticationException
+org.springframework.security.oauth2.core.OAuth2AuthenticationException: [invalid_token_response] An error occurred while attempting to retrieve the OAuth 2.0 Access Token Response: 401 Unauthorized: [no body]
+ ... snip ...
+Caused by: org.springframework.security.oauth2.core.OAuth2AuthorizationException: [invalid_token_response] An error occurred while attempting to retrieve the OAuth 2.0 Access Token Response: 401 Unauthorized: [no body]
+ ... snip ...
+Caused by: org.springframework.web.client.HttpClientErrorException$Unauthorized: 401 Unauthorized: [no body]
+ ... snip ...
+2024-09-20 03:46:14,900 INFO s.s.S.c.s.s.CustomHttpSessionListener [qtp197711499-59] Session destroyed: node0wmxprzcn9jzv1kmg3ww3q74rb0
+```
+
+(Yes, I know stack traces are ugly, but I'm leaving the key pieces in for searchability, that way I can help someone else that goes through this.)
+
+Long story short, when a user logs in, Stirling PDF reaches out to Jumpcloud to get a token to authenticate the user, and it uses a client ID and client secret to authenticate itself. But we get an `HTTP 401`, and I couldn't figure out why. Turns out that I was using the wrong type of authentication.
+
+Instead of doing a request in the HTTP body, which is the default behavior when setting up an OIDC application, Stirling PDF is looking to do a basic authentication. Jumpcloud describes what this does [in their OIDC documentation](https://jumpcloud.com/support/sso-with-oidc#endpoint-configuration) better than I ever could.
+
+![Screenshot of Jumpcloud admin portal, showing OIDC client authentication types](/images/posts/20240919_jumpcloud_oidc_authtype.png)
+
+We're going to go step-by-step through the process below, but that's the gist of the gotcha that I ran into.
 
 ## Portainer
 
@@ -128,4 +157,4 @@ ui:
 
 As soon as that `custom_settings.yml` file is saved in whatever path the container will have mapped to `/configs`, you should be all set. Restart the container(or the whole stack, doesn't matter), and then you should be off to the races.
 
-Happy PDF manipulating!
+**Happy PDFing!**
