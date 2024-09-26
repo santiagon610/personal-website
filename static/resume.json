@@ -1,0 +1,308 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Nicholas Santiago",
+    "label": "Cloud DevSecOps Architect",
+    "image": "https://gravatar.com/avatar/7ecf56ba106becf8248671ec3fc1fbfb?s=400",
+    "email": "yo@santiago.wtf",
+    "phone": "+1 215 800-0045",
+    "url": "https://nicholas.santiago.wtf",
+    "summary": "Highly skilled DevSecOps Engineer with over two decades of extensive experience in Linux system administration, cloud engineering, and cybersecurity. Proven track record of implementing robust automation solutions that enhance operational efficiency and security posture across diverse environments.\n\nExpert in integrating security practices into the DevOps pipeline, ensuring compliance and risk management while driving innovation. Adept at leveraging cloud technologies (AWS, Azure, OCI) to optimize infrastructure and streamline deployment processes. Strong leadership capabilities with experience managing cross-functional teams, mentoring junior engineers, and fostering a culture of collaboration and continuous improvement.\n\nRecognized for a strategic mindset and the ability to align technology initiatives with business objectives, delivering scalable and secure solutions that support organizational growth. Committed to staying at the forefront of industry trends and best practices, with a passion for driving transformation through technology.",
+    "location": {
+      "city": "Philadelphia",
+      "region": "Pennsylvania",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "santiagon610",
+        "url": "https://github.com/santiagon610"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "nicholassantiago",
+        "url": "https://linkedin.com/in/nicholassantiago"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "GeneDx, LLC",
+      "location": "Remote",
+      "description": "Biotechnology Research",
+      "position": "Senior DevOps Engineer",
+      "url": "https://www.genedx.com",
+      "startDate": "2024-07",
+      "summary": "GeneDx believes that everyone deserves personalized, targeted medical care - and that it all begins with a genetic diagnosis. Fueled by one of the world's largest rare disease data sets, our exome and genome tests translate complex genomic data into clinical answers.",
+      "highlights": [
+        "Migrated applications from multiple cloud environments of predecessor companies to a central environment in Oracle Cloud Infrastructure, establishing CI/CD processes in GitHub Actions, for infrastructure and application builds.",
+        "Ensured uptime and resiliency of customer- and workforce-facing Kubernetes applications.",
+        "Accelerated application delivery by forging partnerships with application teams, and by mentoring application developers."
+      ]
+    },
+    {
+      "name": "The Cigna Group",
+      "location": "Remote",
+      "description": "Health Services",
+      "position": "Architecture Senior Advisor",
+      "url": "https://www.genedx.com",
+      "startDate": "2019-10",
+      "endDate": "2024-06",
+      "summary": "Cigna is a global leader in health services.",
+      "highlights": [
+        "Adopted a cloud-native architecture for customer-facing web portals at a global healthcare service provider, harnessing Docker, Kubernetes, Red Hat OpenShift, and offerings from Amazon Web Services.",
+        "Designed zero-touch CI/CD pipelines for customer-facing web portals at a global healthcare service provider, harnessing GitLab, Tekton, Jenkins, Red Hat OpenShift, and AWS Elastic Kubernetes Service.",
+        "Programmatically provisioned cloud and on-premise resources using Terraform, ensuring a homogeneous environment across various the various levels of the software development lifecycle.",
+        "Seamlessly migrated applications from legacy virtual machine-driven applications to containerized applications in a combination of public and private clouds.",
+        "Directly managed a team of early-career associates entering the technology workforce."
+      ]
+    },
+    {
+      "name": "The Cigna Group",
+      "location": "Remote",
+      "description": "Health Services",
+      "position": "Architecture Advisor",
+      "url": "https://www.genedx.com",
+      "startDate": "2018-07",
+      "endDate": "2019-09",
+      "summary": "Cigna is a global leader in health services.",
+      "highlights": [
+        "Created continuous integration and continuous delivery pipelines for over three hundred deployable artifacts, serving over twenty scrum teams.",
+        "Designed the data flow for a new iteration of customer-facing web applications.",
+        "Provided support to onsite and offshore developers."
+      ]
+    },
+    {
+      "name": "The Cigna Group",
+      "location": "Remote",
+      "description": "Health Services",
+      "position": "Infrastructure Engineer Senior Specialist",
+      "url": "https://www.genedx.com",
+      "startDate": "2017-06",
+      "endDate": "2018-06",
+      "summary": "Cigna is a global leader in health services.",
+      "highlights": [
+        "Automated processes and improved efficiency in the deployment of middleware applications being used by Cigna and its trading partners.",
+        "Created the build and deployment pipeline for a new stack of software applications being built on Node.JS and Spring Boot, with automated configuration for Nginx and HA Proxy in all levels of the software development life cycle.",
+        "Adopted and led a scrum team in an early iteration of Agile within the enterprise."
+      ]
+    },
+    {
+      "name": "Pro Unlimited @ The Cigna Group",
+      "location": "Remote",
+      "description": "Health Services",
+      "position": "Infrastructure Engineer Senior Specialist",
+      "url": "https://www.genedx.com",
+      "startDate": "2017-06",
+      "endDate": "2018-06",
+      "summary": "Cigna is a global leader in health services.",
+      "highlights": [
+        "Automated processes and improved efficiency in the deployment of middleware applications being used by Cigna and its trading partners.",
+        "Created the build and deployment pipeline for a new stack of software applications being built on Node.JS and Spring Boot, with automated configuration for Nginx and HA Proxy in all levels of the software development life cycle."
+      ]
+    },
+    {
+      "name": "ProctorFree",
+      "location": "Remote",
+      "description": "E-Learning",
+      "position": "DevOps Engineer",
+      "url": "https://www.genedx.com",
+      "startDate": "2015-05",
+      "endDate": "2016-05",
+      "summary": "ProctorFree helps make education more accessible to all students by bringing the test proctor to them.",
+      "highlights": [
+        "Maintained the public and private cloud server infrastructure of a web application service provider, working with colleges, universities, and accreditation agencies.",
+        "Evaluated and implemented various tools for systematizing and automating new services, packaging and deployment of code and system updates.",
+        "Implemented redundant high availability to the company's cloud, allowing their software stack to survive maintenance and outage scenarios."
+      ]
+    },
+    {
+      "name": "RealTech, LLC",
+      "location": "Remote",
+      "description": "Real Estate Software",
+      "position": "Unix/Linux Systems Administrator",
+      "url": "https://www.isnowlisted.com",
+      "startDate": "2015-05",
+      "endDate": "2016-05",
+      "summary": "ProctorFree helps make education more accessible to all students by bringing the test proctor to them.",
+      "highlights": [
+        "Maintained the public and private cloud server infrastructure of a web application service provider, directly providing service to mortgage companies throughout North America.",
+        "Installed and rebuilt servers, configured hardware, peripherals, services, settings, directories, storage, etc. in accordance with standards and operational requirements.",
+        "Performed daily system monitoring, verified the integrity and availability of all server resources, systems and key processes, reviewed system and application logs, and verified completion of scheduled jobs.",
+        "Applied operating system and package patches and upgrades on a regular basis, and upgrade administrative tools and utilities. Configured and added new services as were necessary."
+      ]
+    },
+    {
+      "name": "iFAX Solutions, Inc.",
+      "location": "Norristown, PA, USA",
+      "description": "Telecommunications",
+      "position": "Technical Support Engineer",
+      "url": "https://www.ifax.com",
+      "startDate": "2012-12",
+      "endDate": "2013-10",
+      "summary": "iFAX Solutions is the developer of HylaFAX Enterprise Edition, the world's most popular fax server software and the leading fax server for business.",
+      "highlights": [
+        "Provided support to customers and integration partners on the evaluation, purchase and implementation of enterprise-grade facsimile server software.",
+        "Integrated facsimile server software with varying PBX platforms, including Cisco Unified Call Manager, Avaya Aura, Nortel BCM, Asterisk, and Switchvox.",
+        "Troubleshot operating-system-level and network-level issues with customer systems running various versions of enterprise facsimile server software on varied distributions and versions of Linux.",
+        "Built and upgraded custom telephony and facsimile servers to facilitate orders received by customers."
+      ]
+    },
+    {
+      "name": "Community Action Committee of the Lehigh Valley",
+      "location": "Bethlehem, PA, USA",
+      "description": "Social Services",
+      "position": "Director of Information Technologies",
+      "url": "https://www.ifax.com",
+      "startDate": "2003-10",
+      "endDate": "2012-12",
+      "summary": "The Community Action Committee of the Lehigh Valley is a multifaceted non-profit organization that operates financial education programs, provides food assistance, job placement, mortgage foreclosure diversion, aid for the homeless, neighborhood revitalization, small business assistance, energy assistance and computer classes for children.",
+      "highlights": [
+        "Served as the Chief Technology Officer for the largest non-profit human services agency in Pennsylvania's Lehigh Valley region, serving the third largest metropolitan region in the Commonwealth.",
+        "Composed and implemented strategic technology plans, setting the agency's technological goals to match with the overall strategic plan as approved by the Board of Directors.",
+        "Implemented strategic plans for the use and evolution of technology within the agency, employing the use of Cloud software, platform and infrastructure solutions.",
+        "Supervised a staff of three, served as the senior Linux system administrator and assisted the Windows system administrator.",
+        "Implemented and enforced security policies to govern appropriate use by employees, contractors and guests.",
+        "Initiated, planned, and implemented a full-scale integration of an MPLS IP network throughout a two-county footprint of ten locations, serving over 100 employees."
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Bethlehem Township Volunteer Fire Company",
+      "position": "Captain / Vehicle Rescue Technician",
+      "url": "http://www.btvfc.org/",
+      "startDate": "2011-12",
+      "summary": "Bethlehem Township Volunteer Fire Co. has been providing protection of life and property to residents and visitors of the Bethlehem Township since 1946. The organization is staffed by scores of professional volunteer firefighters, and a combination of both career and volunteer emergency medical professionals. In my role as Captain, I serve as a command officer over a specialty unit of fireground support personnel."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Cloud Infrastructure",
+      "level": "Master",
+      "keywords": [
+        "Amazon Web Services",
+        "DigitalOcean",
+        "Google Cloud",
+        "Microsoft Azure",
+        "Oracle Cloud Infrastructure"
+      ]
+    },
+    {
+      "name": "Infrastructure as Code",
+      "level": "Master",
+      "keywords": [
+        "Ansible",
+        "Chef",
+        "OpenTofu",
+        "Pulumi",
+        "Puppet",
+        "Terraform"
+      ]
+    },
+    {
+      "name": "Containerization",
+      "level": "Master",
+      "keywords": [
+        "Docker",
+        "Kaniko",
+        "K3S",
+        "Kubernetes",
+        "Podman",
+        "Portainer",
+        "Rancher",
+        "Red Hat OpenShift"
+      ]
+    },
+    {
+      "name": "Continuous Integration and Continuous Delivery",
+      "level": "Master",
+      "keywords": [
+        "ArgoCD",
+        "Concourse CI",
+        "GitHub Actions",
+        "GitLab CI",
+        "IBM UrbanCode Deploy",
+        "Jenkins",
+        "Kaniko",
+        "Tekton"
+      ]
+    },
+    {
+      "name": "Linux",
+      "level": "Master",
+      "keywords": [
+        "AlmaLinux",
+        "Alpine",
+        "Debian",
+        "CentOS",
+        "Red Hat Enterprise Linux",
+        "Rocky Linux",
+        "Ubuntu"
+      ]
+    },
+    {
+      "name": "Observability and Monitoring",
+      "level": "Intermediate",
+      "keywords": ["Datadog", "Dynatrace", "Splunk", "Wazuh"]
+    },
+    {
+      "name": "Databases",
+      "level": "Intermediate",
+      "keywords": ["MongoDB", "MySQL", "PostgreSQL"]
+    },
+    {
+      "name": "Programming Languages",
+      "level": "Intermediate",
+      "keywords": ["Bash", "Python"]
+    },
+    {
+      "name": "Voice over Internet",
+      "level": "Expert",
+      "keywords": [
+        "3CX",
+        "Asterisk",
+        "Avaya IP Office",
+        "Cisco Unified Call Manager",
+        "NEC Aspire",
+        "NEC SL1100",
+        "NEC SL2100"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Amazon Web Services",
+      "area": "Cloud Engineering",
+      "studyType": "Certification",
+      "courses": ["Certified Cloud Practitioner"]
+    },
+    {
+      "institution": "Red Hat",
+      "area": "Cloud Engineering",
+      "studyType": "Professional Development",
+      "courses": [
+        "DO188: Containers, Kubernetes and Red Hat OpenShift",
+        "DO288: OpenShift Development I: Containerizing Applications"
+      ]
+    },
+    {
+      "institution": "Lackawanna College",
+      "area": "Law Enforcement",
+      "studyType": "Certification",
+      "courses": ["PA Act 49 of 2009 - Basic Law Enforcement Academy"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ],
+  "meta": {
+    "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/sample.resume.json",
+    "version": "v1.0.0",
+    "lastModified": "2024-09-25T02:11:32Z"
+  }
+}
