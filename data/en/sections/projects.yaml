@@ -18,6 +18,19 @@ buttons:
 
 # your projects
 projects:
+  - name: Oracle Cloud Infrastructure Foundations Associate
+    logo: /images/sections/skills/oci.svg
+    timeline: October 2025
+    url: https://catalog-education.oracle.com/pls/certview/sharebadge?id=17FF4CE96F685602EEAC9EB2C1A2E9EC3BABC2550E3C265F0F5C19AC0116A78E
+    summary: |
+      The Oracle Cloud Infrastructure (OCI) Foundations certification is for individuals who
+      intend to demonstrate fundamental knowledge of public cloud services provided by Oracle
+      Cloud Infrastructure (OCI). This certification is for candidates with non-technical
+      backgrounds, such as those involved in selling or procuring cloud solutions, as well
+      as those with a technical background who want to validate their foundational-level
+      knowledge around core OCI services.
+    tags: ["certification", "oci"]
+
   - name: AWS Certified Cloud Practitioner
     logo: /images/sections/skills/aws.svg
     timeline: April 2021

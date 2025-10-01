@@ -42,6 +42,14 @@ skills:
       come to embrace the abstract.
     url: "https://kubernetes.io/"
 
+  - name: Oracle Cloud Infrastructure
+    icon: "/images/sections/skills/oci.svg"
+    summary: |
+      Most of my recent experience has been in OCI, due to their flexible and
+      cost-effective approach to cloud computing. While they're not the most
+      ubiquitous cloud provider, they are certainly growing on me.
+    url: "https://cloud.oracle.com/"
+
   - name: Amazon Web Services
     icon: "/images/sections/skills/aws.svg"
     summary: |
