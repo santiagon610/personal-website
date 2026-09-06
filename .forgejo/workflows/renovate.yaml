@@ -1,0 +1,31 @@
+# Keep the deploy workflow's pins (hugo-action, checkout, hugo-version) and
+# anything else Renovate manages current. Runs weekly and on demand; config
+# lives in renovate.json5 (extends the shared inl/workflows preset).
+#
+# Requires a `RENOVATE_TOKEN` repo secret (a bot Forgejo token); optionally
+# `RENOVATE_GITHUB_COM_TOKEN` for github.com release lookups.
+name: renovate
+
+on:
+  schedule:
+    - cron: "0 3 * * 1" # Mondays 03:00 UTC
+  workflow_dispatch:
+    inputs:
+      dryRun:
+        description: "Run without opening branches/PRs"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - .forgejo/workflows/renovate.yaml
+      - renovate.json5
+
+jobs:
+  renovate:
+    # Forgejo 15.0.x won't route a `uses:` job unless the caller also sets runs-on.
+    runs-on: ubuntu-latest
+    uses: https://code.inl.io/inl/workflows/.forgejo/workflows/renovate.yaml@v1
+    with:
+      dry-run: ${{ github.event.inputs.dryRun == 'true' }}
+    secrets: inherit

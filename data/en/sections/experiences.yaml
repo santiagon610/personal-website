@@ -20,8 +20,21 @@ experiences:
         disease data sets, our exome and genome tests translate complex
         genomic data into clinical answers. It all starts with a single test.
     positions:
+      - designation: Staff DevOps Engineer
+        start: April, 2026
+        responsibilities:
+          - Shape reliability strategy—including incident response and capacity
+            planning—for customer- and workforce-facing applications in a
+            multi-cloud Kubernetes environment.
+          - Steer consolidation of predecessor-company workloads into a central
+            environment by defining CI/CD, container, deployment, and IaC
+            standards and reference implementations.
+          - Drive cross-team alignment on platform contracts and deployment
+            patterns, and mentor application developers on cloud-native
+            operations.
       - designation: Senior DevOps Engineer
         start: June, 2024
+        end: April, 2026
         responsibilities:
           - Ensure uptime and resiliency of customer- and workforce-facing web
             applications in a multi-cloud Kubernetes environment.

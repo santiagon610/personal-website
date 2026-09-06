@@ -1,0 +1,23 @@
+# Build the Hugo site and deploy it to S3 + CloudFront via the shared
+# reusable workflow. The "production" target (bucket + CloudFront distribution)
+# is defined in config.yml under `deployment.targets`. Pull requests run the
+# sync with --dryRun.
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  deploy:
+    # Forgejo 15.0.x won't route a `uses:` job unless the caller also sets
+    # runs-on (it ignores the reusable workflow's own runs-on for scheduling).
+    runs-on: ubuntu-latest
+    uses: https://code.inl.io/inl/workflows/.forgejo/workflows/hugo-deploy.yaml@v1
+    with:
+      base-url: https://nicholas.santiago.wtf/
+      deploy-target: production
+      hugo-version: "0.165.0"
+      aws-region: ${{ vars.AWS_DEFAULT_REGION }}
+    secrets: inherit
