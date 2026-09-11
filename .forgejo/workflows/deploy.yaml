@@ -18,6 +18,6 @@ jobs:
     with:
       base-url: https://nicholas.santiago.wtf/
       deploy-target: production
-      hugo-version: "0.165.0"
+      hugo-version: "0.166.0"
       aws-region: ${{ vars.AWS_DEFAULT_REGION }}
     secrets: inherit
