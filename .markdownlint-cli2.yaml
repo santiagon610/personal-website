@@ -1,0 +1,18 @@
+# Style (wrapping, table padding) is Prettier's job; markdownlint catches the rest.
+config:
+  MD013: false # line-length: posts are unwrapped prose
+  # Leave published posts' voice alone: some start sections at ###, and some
+  # headings end in "." or "...".
+  MD001: false # heading-increment
+  MD026: # no-trailing-punctuation
+    punctuation: ",;:"
+
+globs:
+  - "**/*.md"
+
+ignores:
+  - themes/**
+  - public/**
+  - resources/**
+  - "**/node_modules/**"
+  - archetypes/** # Hugo templates, not Markdown

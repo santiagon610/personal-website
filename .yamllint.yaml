@@ -1,0 +1,18 @@
+---
+# Formatting is Prettier's job; yamllint catches structural problems
+# (syntax, duplicate keys, indentation, ambiguous truthy values).
+extends: default
+
+ignore: |
+  themes/
+  public/
+  resources/
+  node_modules/
+
+rules:
+  line-length: disable # prose in data/ files; Prettier handles wrapping
+  document-start: disable
+  comments:
+    min-spaces-from-content: 1 # Prettier's inline comment style
+  truthy:
+    check-keys: false # allow Forgejo Actions' `on:` key

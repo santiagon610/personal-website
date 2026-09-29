@@ -1,7 +1,7 @@
 #!/bin/sh
-# Post (or update in place) a sticky PR comment summarising the Hugo build
-# and the `hugo deploy --dryRun` preview. Reads the logs the earlier steps
-# tee'd into .ci/ and talks to the Forgejo API with $FORGEJO_TOKEN.
+# Post (or update in place) a sticky PR comment summarising the lint results,
+# the Hugo build and the `hugo deploy --dryRun` preview. Reads the logs the
+# earlier steps left in .ci/ and talks to the Forgejo API with $FORGEJO_TOKEN.
 set -eu
 
 marker='<!-- woodpecker:deploy-preview -->'
@@ -10,6 +10,9 @@ build_log=.ci/hugo-build.log
 deploy_log=.ci/hugo-deploy.log
 body=.ci/comment.md
 max_rows=50
+lint_dir=.ci/lint
+lint_ids="markdown shell yaml json prettier"
+max_log_lines=60
 
 touch "$build_log" "$deploy_log"
 
@@ -29,13 +32,36 @@ upload_total=$(sed -n 's/^.*totaling \(.*\), and .*$/\1/p' "$deploy_log")
 # 'Deploying to target "production" (s3://bucket)'
 target_url=$(sed -n 's/^Deploying to target .* (\(.*\))$/\1/p' "$deploy_log")
 
+# Issue count per linter, from each tool's own output format.
+lint_count() {
+  log="$lint_dir/$1.log"
+  case "$1" in
+    markdown) sed -n 's/^Summary: \([0-9]*\) issue.*/\1/p' "$log" ;;
+    shell) grep -c '\^-- SC' "$log" ;;
+    yaml) grep -c '^[^:]*:[0-9]*:[0-9]*: \[' "$log" ;;
+    json) grep -c ': invalid JSON$' "$log" ;;
+    prettier) grep -v 'Code style issues' "$log" | grep -c '^\[warn\]' ;;
+  esac
+}
+
+lint_failed=""
+for id in $lint_ids; do
+  if [ -f "$lint_dir/$id.rc" ] && [ "$(cat "$lint_dir/$id.rc")" != 0 ]; then
+    lint_failed="$lint_failed $id"
+  fi
+done
+
 short_sha=$(printf '%.8s' "$CI_COMMIT_SHA")
 commit_link="[\`${short_sha}\`](${CI_REPO_URL}/commit/${CI_COMMIT_SHA})"
 pipeline_link="[🐦 Pipeline #${CI_PIPELINE_NUMBER}](${CI_PIPELINE_URL})"
 
 {
   echo "$marker"
-  if [ "${CI_PIPELINE_STATUS:-success}" != success ]; then
+  if [ -n "$lint_failed" ]; then
+    echo "## 🧹 Lint failed — build skipped"
+    echo
+    echo "🙅 Fix the lint findings below and push again; the build and deploy preview run once lint is green."
+  elif [ "${CI_PIPELINE_STATUS:-success}" != success ]; then
     echo "## ❌ Deploy preview failed"
     echo
     echo "💥 Something broke before the preview finished — check the ${pipeline_link} logs. 🔍"
@@ -50,16 +76,55 @@ pipeline_link="[🐦 Pipeline #${CI_PIPELINE_NUMBER}](${CI_PIPELINE_URL})"
   fi
   echo
 
-  echo "### 🏗️ Build"
+  echo "### 🧹 Lint"
   echo
-  echo "| | Metric | Value |"
-  echo "|---|---|---:|"
-  echo "| 📄 | Pages | $(stat Pages) |"
-  echo "| 🖼️ | Processed images | $(stat 'Processed images') |"
-  echo "| 📁 | Static files | $(stat 'Static files') |"
-  echo "| 🔀 | Aliases | $(stat Aliases) |"
-  echo "| ⏱️ | Build time | ${build_time:-n/a} |"
+  echo "| | Check | Result |"
+  echo "|---|---|---|"
+  for id in $lint_ids; do
+    label=$(cat "$lint_dir/$id.label" 2>/dev/null || echo "$id")
+    if [ ! -f "$lint_dir/$id.rc" ]; then
+      echo "| ⏭️ | ${label} | didn't run |"
+    elif [ "$(cat "$lint_dir/$id.rc")" = 0 ]; then
+      echo "| ✅ | ${label} | clean |"
+    else
+      echo "| ❌ | ${label} | $(lint_count "$id" || true) issue(s) |"
+    fi
+  done
   echo
+  for id in $lint_failed; do
+    log="$lint_dir/$id.log"
+    echo "<details open>"
+    echo "<summary>❌ $(cat "$lint_dir/$id.label") output</summary>"
+    echo
+    echo '~~~text'
+    # Strip ANSI colour codes; cap long logs.
+    sed 's/\x1b\[[0-9;]*m//g' "$log" | head -n "$max_log_lines"
+    if [ "$(wc -l < "$log")" -gt "$max_log_lines" ]; then
+      echo "… truncated, see the pipeline logs"
+    fi
+    echo '~~~'
+    echo
+    echo "</details>"
+    echo
+  done
+
+  if [ ! -s "$build_log" ]; then
+    echo "### ⏭️ Build"
+    echo
+    echo "Skipped — it only runs once every lint check passes."
+    echo
+  else
+    echo "### 🏗️ Build"
+    echo
+    echo "| | Metric | Value |"
+    echo "|---|---|---:|"
+    echo "| 📄 | Pages | $(stat Pages) |"
+    echo "| 🖼️ | Processed images | $(stat 'Processed images') |"
+    echo "| 📁 | Static files | $(stat 'Static files') |"
+    echo "| 🔀 | Aliases | $(stat Aliases) |"
+    echo "| ⏱️ | Build time | ${build_time:-n/a} |"
+    echo
+  fi
 
   if [ "$n_up" -gt 0 ] || [ "$n_del" -gt 0 ]; then
     echo "### 🔎 File changes"

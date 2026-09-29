@@ -57,4 +57,5 @@ I think I'm going to enjoy this.
 But he left his desk untidy. That's going to irritate me. Let's see how this goes.
 
 [^1]: I'm not referring to not having contact with my fiancee. She's very much my human, and she's still here. So that's pretty great.
+
 [^2]: Sorry for the double negative. If that hurt for you to read, rest assured that it hurt to type.

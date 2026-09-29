@@ -1,0 +1,7 @@
+themes/
+public/
+resources/
+# Hugo templates, not Markdown
+archetypes/
+# Served as-is
+static/**/*.html

@@ -1,4 +1,4 @@
-# Keep the deploy workflow's pins (hugo-action, checkout, hugo-version) and
+# Keep pinned versions (Hugo, CI images, npm packages) and
 # anything else Renovate manages current. Runs weekly and on demand; config
 # lives in renovate.json5 (extends the shared inl/workflows preset).
 #
