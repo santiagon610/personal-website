@@ -7,9 +7,9 @@
   {{ $invertedLogo = site.Params.logo.inverted }}
 {{ end }}
 
-{{ $sections:= site.Data.sections }}
-{{ if (index site.Data site.Language.Lang).sections }}
-  {{ $sections = (index site.Data site.Language.Lang).sections }}
+{{ $sections:= hugo.Data.sections }}
+{{ if (index hugo.Data site.Language.Lang).sections }}
+  {{ $sections = (index hugo.Data site.Language.Lang).sections }}
 {{ end }}
 
 <nav class="navbar navbar-expand-xl top-navbar initial-navbar" id="top-navbar">
@@ -59,7 +59,7 @@
             <a class="nav-link" id="blog-link" href="{{ "/posts.html" | relLangURL }}">{{ i18n "posts" }}</a>
           </li>
         {{ end }}
-        {{ range  (index site.Data site.Language.Lang).site.customMenus }}
+        {{ range  (index hugo.Data site.Language.Lang).site.customMenus }}
           <li class="nav-item">
             <a class="nav-link" href="{{ .url }}">{{ .name }}</a>
           </li>

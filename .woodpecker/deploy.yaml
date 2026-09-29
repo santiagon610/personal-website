@@ -1,0 +1,79 @@
+# Build the Hugo site and sync it to S3 + CloudFront. The "production" target
+# (bucket + distribution) is defined in config.yml under `deployment.targets`;
+# `hugo deploy` invalidates the CloudFront cache itself when it uploads changes.
+#
+# Pull requests preview the sync with --dryRun; pushes to main deploy for real.
+#
+# Requires Woodpecker repo secrets (with `push` and `pull_request` allowed):
+#   aws_access_key_id, aws_secret_access_key, aws_default_region
+# plus the global `forgejo-devops-bot-token` (needs write:issue on this repo)
+# for the PR comment.
+---
+# All knobs and secrets live here; steps pull in only the groups they need.
+variables:
+  - &site_env
+    # Hugo reads HUGO_* env vars as config overrides.
+    HUGO_BASEURL: https://nicholas.santiago.wtf/
+    DEPLOY_TARGET: production
+  - &aws_env
+    AWS_ACCESS_KEY_ID:
+      from_secret: aws_access_key_id
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: aws_secret_access_key
+    AWS_DEFAULT_REGION:
+      from_secret: aws_default_region
+  - &forgejo_env
+    FORGEJO_TOKEN:
+      from_secret: forgejo-devops-bot-token
+
+when:
+  - event: [push, pull_request]
+    branch: main
+
+labels:
+  backend: kubernetes
+
+# Explicit only to rename the step; settings match the implicit default
+# (plugin-git's `partial: true` fetches just the one commit).
+clone:
+  - name: Clone repo
+    image: docker.io/woodpeckerci/plugin-git:2.10.1
+
+steps:
+  - name: Build Hugo site
+    # Official image is the extended+withdeploy edition, same as hugo-action
+    # uses for cdn deploys. Renovate's woodpecker manager bumps the tag.
+    image: &hugo_image ghcr.io/gohugoio/hugo:v0.166.0
+    environment: *site_env
+    commands:
+      - hugo version
+      - mkdir -p .ci
+      # tee the logs so the PR comment step can summarise them.
+      - set -o pipefail; hugo --gc --minify 2>&1 | tee .ci/hugo-build.log
+
+  - &deploy
+    name: Deploy (dry run)
+    image: *hugo_image
+    environment:
+      <<: [*site_env, *aws_env]
+    commands:
+      - set -o pipefail; hugo deploy --target "$${DEPLOY_TARGET}" --dryRun 2>&1 | tee .ci/hugo-deploy.log
+    when:
+      - event: pull_request
+
+  - <<: *deploy
+    name: Deploy (live)
+    commands:
+      - hugo deploy --target "$${DEPLOY_TARGET}"
+    when:
+      - event: push
+
+  - name: Comment on PR
+    image: docker.io/library/alpine:3.24
+    environment: *forgejo_env
+    commands:
+      - apk add --no-cache -q curl jq
+      - sh .woodpecker/scripts/pr-comment.sh
+    when:
+      - event: pull_request
+        status: [success, failure]
