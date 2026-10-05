@@ -81,7 +81,7 @@ steps:
   - name: Build Hugo site
     # Official image is the extended+withdeploy edition, same as hugo-action
     # uses for cdn deploys. Renovate's woodpecker manager bumps the tag.
-    image: &hugo_image ghcr.io/gohugoio/hugo:v0.166.0
+    image: &hugo_image ghcr.io/gohugoio/hugo:v0.167.0
     depends_on:
       - Lint Markdown
       - Lint shell
