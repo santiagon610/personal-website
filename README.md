@@ -15,6 +15,8 @@ theme, hosted on S3 behind CloudFront.
 | [`data/en/sections/`](data/en/sections)              | Homepage sections: about, experiences, skills, projects, achievements, recent posts                       |
 | [`content/posts/`](content/posts)                    | Blog posts, one Markdown file each (`YYYYMMDD_slug.md`)                                                   |
 | [`static/`](static)                                  | Files served as-is: images, `files/` (resume PDF/ODT, certs), `resume.json`                               |
+| [`static/admin/`](static/admin)                      | Sveltia CMS at `/admin/` (see [Content editing](#content-editing))                                        |
+| [`docs/`](docs)                                      | Longer how-tos, such as [content editing](docs/content-editing.md)                                        |
 | [`themes/toha/`](themes/toha)                        | Vendored copy of the Toha theme, with local tweaks — edit it here, not upstream                           |
 | [`.woodpecker/deploy.yaml`](.woodpecker/deploy.yaml) | CI/CD pipeline (see [Deployment](#deployment))                                                            |
 
@@ -55,6 +57,17 @@ menu:
     weight: -8
 ```
 
+## Content editing
+
+Posts, the author profile, and the homepage sections can also be edited in
+[Sveltia CMS](https://sveltiacms.app/) at
+<https://nicholas.santiago.wtf/admin/>. It signs in with code.inl.io, and
+every save commits straight to `main` and deploys. To try it locally, run
+`hugo server -D`, open <http://localhost:1313/admin/> in Chrome, and choose
+**Work with Local Repository**. See
+[docs/content-editing.md](docs/content-editing.md) for what a CMS save
+changes and the forge setup it depends on.
+
 ## Linting
 
 Every pipeline starts with five checks in parallel, and the build only runs
@@ -69,6 +82,8 @@ once they all pass:
 | Formatting | Prettier          | [`.prettierignore`](.prettierignore)                 |
 
 Prettier owns formatting, so the linters skip style rules like line length.
+On pushes to `main` the Prettier check only reports, since CMS saves can't
+match its quote style (see [docs/content-editing.md](docs/content-editing.md)).
 The vendored theme and build output are excluded everywhere. To fix
 formatting locally:
 

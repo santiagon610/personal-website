@@ -1,0 +1,433 @@
+# Sveltia CMS configuration: https://sveltiacms.app/en/docs
+#
+# I sign in with my code.inl.io account; anyone with write access to the
+# repository can edit. Every save commits straight to main, which the
+# Woodpecker pipeline lints and deploys.
+---
+backend:
+  name: gitea
+  repo: nick/personal-website
+  branch: main
+  base_url: https://code.inl.io
+  api_root: https://code.inl.io/api/v1
+  # Client ID of the non-confidential OAuth2 application registered on
+  # code.inl.io, with this site's /admin/ URLs as redirect URIs. It's public
+  # by design: PKCE needs no client secret.
+  app_id: 3ae6e59d-c723-4569-b254-53b2d3792fc4
+  auth_methods: [oauth]
+
+site_url: https://nicholas.santiago.wtf/
+
+# Post images. Fields for other parts of the site override this.
+media_folder: static/images/posts
+public_folder: /images/posts
+
+media_libraries:
+  default:
+    config:
+      # Bytes. Large camera photos are shrunk below before this applies.
+      max_file_size: 20000000
+      # "My Photo.jpg" becomes my_photo.webp, like the existing images.
+      slugify_filename: true
+      transformations:
+        # Keeps uploaded originals from bloating the repository.
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2400
+          height: 2400
+
+# Match the existing file names (20240919_stirlingpdf_oidc.md) and dates.
+slug:
+  sanitize_replacement: _
+  timezone: local
+
+output:
+  omit_empty_optional_fields: true
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    icon: article
+    folder: content/posts
+    # Without this, uploads land beside the post in content/posts/.
+    media_folder: /static/images/posts
+    public_folder: /images/posts
+    create: true
+    # Hugo's posts/_index.md is skipped by default.
+    path: "{{year}}{{month}}{{day}}_{{slug}}"
+    slug:
+      template: "{{title}}"
+      # The file name is the post's URL; changing it later would break links.
+      editable: [create]
+      hint: Keep it short, e.g. stirlingpdf_oidc.
+    # uglyURLs: posts are served as /posts/<file>.html.
+    preview_path: "posts/{{filename}}.html"
+    sortable_fields:
+      default:
+        field: date
+        direction: descending
+      fields: [date, title]
+    summary: "{{title}} · {{date | date('YYYY-MM-DD')}}{{draft | ternary(' (draft)', '')}}"
+    fields:
+      - name: title
+        label: Title
+      - name: date
+        label: Date
+        widget: datetime
+        format: YYYY-MM-DDTHH:mm:ssZ
+      - name: draft
+        label: Draft
+        widget: boolean
+        default: true
+        hint: Turn off to publish.
+      - name: hero
+        label: Header Image
+        widget: image
+        required: false
+      - name: description
+        label: Summary
+        widget: text
+        required: false
+        hint: One line shown in post listings and link previews.
+      - name: menu
+        label: Sidebar
+        widget: object
+        fields:
+          - name: sidebar
+            label: Sidebar Entry
+            widget: object
+            fields:
+              - name: name
+                label: Sidebar Title
+                hint: A short version of the title.
+              - name: identifier
+                label: ID
+                hint: Unique; lowercase words joined by hyphens.
+              - name: weight
+                label: Position
+                widget: number
+                value_type: int
+                hint: >-
+                  Lower numbers are listed first, so give a new post a lower
+                  number than the newest one (e.g. -8 after -7).
+      - name: tags
+        label: Tags
+        widget: list
+        required: false
+      # Only the 2021 posts use these; kept so saving them doesn't drop keys.
+      - name: image
+        label: Image (legacy)
+        widget: image
+        required: false
+      - name: author
+        label: Author (legacy)
+        required: false
+      - name: categories
+        label: Categories (legacy)
+        widget: list
+        required: false
+      - name: body
+        label: Body
+        widget: markdown
+        # Plain Markdown only: the rich text editor rewrites the whole body on
+        # save (4-space nested lists, escaped "~"), which fails markdownlint
+        # and blocks the deploy.
+        modes: [raw]
+
+  - name: profile
+    label: Profile
+    icon: person
+    files:
+      - name: author
+        label: Author
+        file: data/en/author.yaml
+        fields:
+          - name: name
+            label: Name
+          - name: nickname
+            label: Nickname
+          - name: greeting
+            label: Greeting
+            hint: Shown before the name, e.g. "Hi, I'm".
+          - name: image
+            label: Photo
+            widget: image
+            # The theme expects a path relative to the site root here.
+            media_folder: /static/images/author
+            public_folder: images/author
+          - name: contactInfo
+            label: Contact Info
+            widget: object
+            fields:
+              - name: email
+                label: Email
+              - name: phone
+                label: Phone
+                required: false
+          - name: summary
+            label: Taglines
+            label_singular: Tagline
+            widget: list
+            hint: Cycled through on the home page.
+      - name: site
+        label: Site
+        file: data/en/site.yaml
+        fields:
+          - name: copyright
+            label: Copyright
+          - name: description
+            label: Description
+            widget: text
+
+  - name: sections
+    label: Homepage Sections
+    icon: view_agenda
+    files:
+      - name: about
+        label: About
+        file: data/en/sections/about.yaml
+        fields:
+          - &section
+            name: section
+            label: Section Settings
+            widget: object
+            collapsed: true
+            fields:
+              - name: name
+                label: Heading
+              - name: id
+                label: ID
+                hint: Used in the page's "#anchor" link; don't change it.
+              - name: enable
+                label: Show on Home Page
+                widget: boolean
+                default: true
+              - name: weight
+                label: Position
+                widget: number
+                value_type: int
+                hint: Lower numbers are shown first.
+              - name: showOnNavbar
+                label: Show in Navigation Bar
+                widget: boolean
+                default: true
+              - name: hideTitle
+                label: Hide Heading
+                widget: boolean
+                required: false
+              - name: template
+                label: Template
+                required: false
+                hint: Theme template override; leave as is.
+          - name: designation
+            label: Job Title
+          - name: company
+            label: Company
+            widget: object
+            fields:
+              - name: name
+                label: Name
+              - name: url
+                label: Website
+                required: false
+          - name: resume
+            label: Resume
+            widget: file
+            required: false
+            # The theme expects a path relative to the site root here.
+            media_folder: /static/files
+            public_folder: files
+          - name: summary
+            label: Summary
+            widget: text
+          - name: socialLinks
+            label: Social Links
+            label_singular: Social Link
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - name: name
+                label: Name
+              - name: icon
+                label: Icon
+                hint: >-
+                  Font Awesome classes, e.g. "fab fa-github", from
+                  https://fontawesome.com/search?ic=free
+              - name: url
+                label: Link
+                hint: For email, just the address.
+          - name: softSkills
+            label: Soft Skills
+            label_singular: Soft Skill
+            widget: list
+            summary: "{{fields.name}} ({{fields.percentage}}%)"
+            fields:
+              - name: name
+                label: Name
+              - name: percentage
+                label: Percentage
+                widget: number
+                value_type: int
+                min: 50
+                max: 100
+                step: 5
+              - name: color
+                label: Color
+                widget: select
+                options: [blue, yellow, pink, green, sky, orange]
+
+      - name: skills
+        label: Skills
+        file: data/en/sections/skills.yaml
+        fields:
+          - *section
+          - name: skills
+            label: Skills
+            label_singular: Skill
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - name: name
+                label: Name
+              - name: icon
+                label: Logo
+                widget: image
+                media_folder: /static/images/sections/skills
+                public_folder: /images/sections/skills
+              - name: summary
+                label: Summary
+                widget: text
+              - name: url
+                label: Link
+                required: false
+
+      - name: experiences
+        label: Experiences
+        file: data/en/sections/experiences.yaml
+        fields:
+          - *section
+          - name: experiences
+            label: Companies
+            label_singular: Company
+            widget: list
+            summary: "{{fields.company.name}}"
+            fields:
+              - name: company
+                label: Company
+                widget: object
+                fields:
+                  - name: name
+                    label: Name
+                  - name: url
+                    label: Website
+                    required: false
+                  - name: location
+                    label: Location
+                    required: false
+                  - name: overview
+                    label: Overview
+                    widget: text
+                    required: false
+              - name: positions
+                label: Positions
+                label_singular: Position
+                widget: list
+                summary: "{{fields.designation}} ({{fields.start}})"
+                fields:
+                  - name: designation
+                    label: Job Title
+                  - name: start
+                    label: Start
+                    hint: Month and year, e.g. "April, 2026".
+                  - name: end
+                    label: End
+                    required: false
+                    hint: Leave empty for a current job.
+                  - name: responsibilities
+                    label: Responsibilities
+                    label_singular: Responsibility
+                    widget: list
+                    field:
+                      name: responsibility
+                      label: Responsibility
+                      widget: text
+
+      - name: projects
+        label: Projects
+        file: data/en/sections/projects.yaml
+        fields:
+          - *section
+          - name: buttons
+            label: Filter Buttons
+            label_singular: Filter Button
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - name: name
+                label: Label
+              - name: filter
+                label: Tag
+                hint: Shows projects with this tag; "all" shows every project.
+          - name: projects
+            label: Projects
+            label_singular: Project
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - name: name
+                label: Name
+              - name: logo
+                label: Logo
+                widget: image
+                required: false
+                media_folder: /static/images/sections/skills
+                public_folder: /images/sections/skills
+              - name: role
+                label: Role
+                required: false
+              - name: timeline
+                label: Timeline
+                hint: e.g. "Q2 2021" or "April 2021".
+              - name: url
+                label: Link
+                required: false
+              - name: repo
+                label: Repository
+                required: false
+              - name: summary
+                label: Summary
+                widget: text
+              - name: tags
+                label: Tags
+                widget: list
+                hint: Match a filter button's tag to show up under it.
+
+      - name: achievements
+        label: Achievements
+        file: data/en/sections/achievements.yaml
+        fields:
+          - *section
+          - name: achievements
+            label: Achievements
+            label_singular: Achievement
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - name: title
+                label: Title
+              - name: image
+                label: Image
+                widget: image
+                media_folder: /static/images/sections/achievements
+                public_folder: /images/sections/achievements
+              - name: summary
+                label: Summary
+                widget: text
+
+      - name: recent-posts
+        label: Recent Posts
+        file: data/en/sections/recent-posts.yaml
+        fields:
+          - *section
