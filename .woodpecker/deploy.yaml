@@ -75,7 +75,7 @@ steps:
     environment:
       npm_config_update_notifier: "false"
     commands:
-      - npm install --global --silent prettier@3.9.9
+      - npm install --global --silent prettier@3.9.10
       # Advisory on push: Sveltia CMS commits straight to main, and it
       # single-quotes YAML strings that Prettier would double-quote. A style
       # nit shouldn't block publishing; pull requests still enforce it.
