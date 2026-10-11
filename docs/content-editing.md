@@ -57,12 +57,15 @@ without being committed.
 
 1. **A non-confidential OAuth2 application** with these redirect URIs:
    - `https://nicholas.santiago.wtf/admin/`
-   - `https://nicholas.santiago.wtf/admin/index.html` (`uglyURLs` means
-     either path can be the one in the address bar)
    - `http://localhost:1313/admin/`
 
    Its Client ID is `app_id` in `static/admin/config.yml`. It's public by
    design: PKCE needs no client secret.
+
+   CloudFront redirects `/admin` to `/admin/` (`cloudfront_index_redirect`
+   on the site's module in inl-io/tofu), so the CMS always runs at
+   `/admin/`. Without that redirect it would load `/config.yml` and send an
+   unregistered redirect URI.
 
 2. **CORS for the site's origin.** `https://nicholas.santiago.wtf` has to be
    listed in `gitea.config.cors.ALLOW_DOMAIN` in
