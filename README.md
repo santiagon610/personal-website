@@ -119,4 +119,7 @@ For a manual deploy from a workstation with AWS credentials loaded,
 
 [Renovate](renovate.json5) (run from
 [`.forgejo/workflows/renovate.yaml`](.forgejo/workflows/renovate.yaml)) opens
-PRs to bump Hugo, the pipeline images, and the theme's npm packages.
+PRs to bump Hugo, the pipeline images, the theme's npm packages, and Sveltia
+CMS (pinned in [`static/admin/index.html`](static/admin/index.html)). Sveltia
+bumps are never auto-merged: try them with `hugo server -D` and **Work with
+Local Repository** before merging, since CI doesn't exercise the editor.

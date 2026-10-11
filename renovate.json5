@@ -12,5 +12,25 @@
       ],
       datasourceTemplate: "npm",
     },
+    {
+      customType: "regex",
+      description: "npm packages loaded from unpkg in static HTML (Sveltia CMS)",
+      managerFilePatterns: ["static/**/*.html"],
+      matchStrings: [
+        "https://unpkg\\.com/(?<depName>(@[a-z0-9-]+/)?[a-z0-9.-]+)@(?<currentValue>\\d+\\.\\d+\\.\\d+)/",
+      ],
+      datasourceTemplate: "npm",
+    },
+  ],
+
+  packageRules: [
+    {
+      // Still 0.x, and CI doesn't exercise the editor, so even a patch can
+      // break editing unnoticed. Try a bump with `hugo server -D` and Work with
+      // Local Repository before merging.
+      description: "Sveltia CMS bumps are reviewed, not auto-merged",
+      matchDepNames: ["@sveltia/cms"],
+      automerge: false,
+    },
   ],
 }
