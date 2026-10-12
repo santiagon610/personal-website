@@ -1,49 +1,36 @@
----
-# section information
 section:
   name: About
   id: about
   enable: true
   weight: 1
   showOnNavbar: true
+  hideTitle: false
   template: sections/about.html
-
-# your designation
 designation: Senior DevSecOps Architect
-# your company information
 company:
-  name: GeneDx
-  url: "https://www.genedx.com/"
-
-# your resume. this file path should be relative to you "static" directory
-resume: "files/nicholas_santiago_resume.pdf"
-
-# a summary about you
-summary: |
+  name: HLV Technologies, LLC
+  url: https://www.hlvtechnologies.llc/
+resume: files/nicholas_santiago_resume.pdf
+summary: |-
   I am a security-centric DevOps Engineer with over 15 years of Linux
   experience. My love for Linux, continuous delivery, containerization,
   and web services knows no bounds.
-
 socialLinks:
   - name: Email
-    icon: "fas fa-envelope"
-    url: "yo@santiago.wtf"
+    icon: fas fa-envelope
+    url: yo@santiago.wtf
   - name: Github
-    icon: "fab fa-github"
-    url: "https://www.github.com/santiagon610"
+    icon: fab fa-github
+    url: https://www.github.com/santiagon610
   - name: LinkedIn
-    icon: "fab fa-linkedin"
-    url: "https://linkedin.com/in/nicholassantiago"
+    icon: fab fa-linkedin
+    url: https://linkedin.com/in/nicholassantiago
   - name: Twitter
-    icon: "fab fa-twitter"
-    url: "https://twitter.com/santiagon610"
+    icon: fab fa-twitter
+    url: https://twitter.com/santiagon610
   - name: Instagram
-    icon: "fab fa-instagram"
-    url: "https://instagram.com/santiagon610"
-
-# your soft skills
-# give the percentage between 50 to 100 with 5 intervals.
-# currently supported colors: blue, yellow, pink, green, sky, orange
+    icon: fab fa-instagram
+    url: https://instagram.com/santiagon610
 softSkills:
   - name: Learning
     percentage: 85
