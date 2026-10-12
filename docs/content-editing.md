@@ -7,9 +7,30 @@ Posts and the homepage data can be edited through
 version is pinned in [`static/admin/index.html`](../static/admin/index.html).
 
 Sveltia has no accounts of its own. It signs in with a code.inl.io (Forgejo)
-account, so anyone who can push to `nick/personal-website` can edit, and
-every save commits straight to `main`, which the Woodpecker pipeline lints
-and deploys.
+account, so anyone with write access to `nick/personal-website` can edit.
+
+## Saving and publishing
+
+`main` only accepts pull requests, so the CMS uses Sveltia's
+[editorial workflow](https://sveltiacms.app/en/docs/workflows/editorial):
+
+1. **Save** commits the entry to its own branch, `cms/<collection>/<entry>`,
+   and opens a pull request for it. Later saves of the same entry add to
+   that branch.
+2. Woodpecker runs the pull request pipeline: lint, build, and a deploy dry
+   run, with the results in a PR comment.
+3. Move the entry to **Ready** on the CMS's Workflow board (or from the
+   editor's status menu), then **Publish**. That squash-merges the pull
+   request and deletes the branch, and the push to `main` deploys.
+
+Publish fails while the pipeline is still running or has failed, and when
+`main` has moved on since the branch was made (branch protection requires
+an up-to-date branch). For the latter, press **Update branch** on the pull
+request, wait for the pipeline, reload the CMS, and publish again.
+
+Images are uploaded from an entry's image fields and go into that entry's
+pull request. The Media page can't upload or delete files, since that would
+commit straight to `main`.
 
 ## What's editable
 
@@ -41,15 +62,15 @@ and escaping `~`. That fails markdownlint, which would block the deploy.
 
 Sveltia single-quotes YAML strings that need quotes (for example a title
 containing a colon), which Prettier would change to double quotes. For that
-reason the Prettier check only reports on pushes to `main`, and only blocks
-pull requests. Run `npx prettier@3.9.9 --write .` after pulling to tidy up.
+reason the Prettier check only reports on CMS pull requests (`cms/...`
+branches) and on pushes to `main`, and blocks other pull requests. Run `npx prettier@3.9.10 --write .` after pulling to tidy up.
 
 ## Local testing
 
 Run `hugo server -D`, then open <http://localhost:1313/admin/> in Chrome or
 Edge and choose **Work with Local Repository**. Pick this checkout, and
 allow Chrome to edit files when it first saves. Edits are written to disk
-without being committed.
+without being committed, and there's no workflow board.
 
 ## Forge setup
 

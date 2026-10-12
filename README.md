@@ -61,8 +61,9 @@ menu:
 
 Posts, the author profile, and the homepage sections can also be edited in
 [Sveltia CMS](https://sveltiacms.app/) at
-<https://nicholas.santiago.wtf/admin/>. It signs in with code.inl.io, and
-every save commits straight to `main` and deploys. To try it locally, run
+<https://nicholas.santiago.wtf/admin/>. It signs in with code.inl.io. Each
+save goes to a `cms/...` branch and pull request, and **Publish** in the CMS
+merges it, which deploys. To try it locally, run
 `hugo server -D`, open <http://localhost:1313/admin/> in Chrome, and choose
 **Work with Local Repository**. See
 [docs/content-editing.md](docs/content-editing.md) for what a CMS save
@@ -82,13 +83,13 @@ once they all pass:
 | Formatting | Prettier          | [`.prettierignore`](.prettierignore)                 |
 
 Prettier owns formatting, so the linters skip style rules like line length.
-On pushes to `main` the Prettier check only reports, since CMS saves can't
-match its quote style (see [docs/content-editing.md](docs/content-editing.md)).
+On pushes to `main` and on CMS pull requests (`cms/...` branches) the
+Prettier check only reports, since CMS saves can't match its quote style (see [docs/content-editing.md](docs/content-editing.md)).
 The vendored theme and build output are excluded everywhere. To fix
 formatting locally:
 
 ```sh
-npx prettier@3.9.9 --write .
+npx prettier@3.9.10 --write .
 ```
 
 With a linter installed, `sh .woodpecker/scripts/lint.sh <markdown|shell|yaml|json|prettier>`

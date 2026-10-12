@@ -76,10 +76,14 @@ steps:
       npm_config_update_notifier: "false"
     commands:
       - npm install --global --silent prettier@3.9.10
-      # Advisory on push: Sveltia CMS commits straight to main, and it
-      # single-quotes YAML strings that Prettier would double-quote. A style
-      # nit shouldn't block publishing; pull requests still enforce it.
-      - sh .woodpecker/scripts/lint.sh prettier || [ "$${CI_PIPELINE_EVENT}" = push ]
+      # Advisory on push and on Sveltia CMS pull requests (cms/... branches):
+      # the CMS single-quotes YAML strings that Prettier would double-quote,
+      # and a style nit shouldn't block publishing. Other pull requests still
+      # enforce it.
+      - >-
+        sh .woodpecker/scripts/lint.sh prettier
+        || [ "$${CI_PIPELINE_EVENT}" = push ]
+        || case "$${CI_COMMIT_SOURCE_BRANCH}" in cms/*) true ;; *) false ;; esac
 
   - name: Build Hugo site
     # Official image is the extended+withdeploy edition, same as hugo-action

@@ -1,8 +1,9 @@
 # Sveltia CMS configuration: https://sveltiacms.app/en/docs
 #
 # I sign in with my code.inl.io account; anyone with write access to the
-# repository can edit. Every save commits straight to main, which the
-# Woodpecker pipeline lints and deploys.
+# repository can edit. main only accepts pull requests, so saves go through
+# the editorial workflow: each entry gets a cms/... branch and pull request,
+# Woodpecker checks it, and Publish merges it, which deploys.
 ---
 backend:
   name: gitea
@@ -15,8 +16,14 @@ backend:
   # by design: PKCE needs no client secret.
   app_id: 3ae6e59d-c723-4569-b254-53b2d3792fc4
   auth_methods: [oauth]
+  # Match the repository's squash-merged history.
+  squash_merges: true
 
 site_url: https://nicholas.santiago.wtf/
+
+# main is protected (pull requests only), which makes the simple workflow
+# read-only.
+publish_mode: editorial_workflow
 
 # Post images. Fields for other parts of the site override this.
 media_folder: static/images/posts
