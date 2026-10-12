@@ -57,7 +57,7 @@ steps:
       - sh .woodpecker/scripts/lint.sh shell
 
   - name: Lint YAML
-    image: docker.io/pipelinecomponents/yamllint:0.35.13
+    image: docker.io/pipelinecomponents/yamllint:0.35.27
     depends_on: []
     commands:
       - sh .woodpecker/scripts/lint.sh yaml
