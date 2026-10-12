@@ -1,17 +1,15 @@
----
-name: "Nicholas Santiago"
-nickname: "Nick."
-greeting: "Hi, I'm"
-image: "images/author/nick-2019_cigna_headshot.jpeg"
-# image: "images/author/nick-2021_btfd_uniform.jpeg"
+name: Nicholas Santiago
+nickname: Nick.
+greeting: Hi, I'm
+image: images/author/nick-2019_cigna_headshot.jpeg
 contactInfo:
-  email: "yo@santiago.wtf"
-  phone: "+1 215 800-0045"
+  email: yo@santiago.wtf
+  phone: +1 215 800-0045
 summary:
-  - "I am a web infrastructure nerd."
-  - "I am lazy af."
-  - "I love automating complicated things."
-  - "I've been accused of being unproductively snide."
-  - "I love open-source software."
-  - "I like pizza."
-  - "A hot dog is not a sandwich. Ask me why."
+  - I am a web infrastructure nerd.
+  - I am lazy af.
+  - I love automating complicated things.
+  - I've been accused of being unproductively snide.
+  - I love open-source software.
+  - I like pizza.
+  - A hot dog is not a sandwich. Ask me why.

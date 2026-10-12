@@ -1,19 +1,16 @@
----
-# section information
 section:
   name: Experiences
   id: experiences
   enable: true
   weight: 3
   showOnNavbar: true
-
-# Your experiences
+  hideTitle: false
 experiences:
   - company:
       name: GeneDx
-      url: "https://www.genedx.com"
+      url: https://www.genedx.com
       location: Gaithersburg, MD, USA
-      overview: |
+      overview: |-
         GeneDx believes that everyone deserves personalized, targeted medical
         care - and that it all begins with a genetic diagnosis. Fueled by one
         of the world's largest rare disease data sets, world's largest rare
@@ -23,31 +20,21 @@ experiences:
       - designation: Staff DevOps Engineer
         start: April, 2026
         responsibilities:
-          - Shape reliability strategy—including incident response and capacity
-            planning—for customer- and workforce-facing applications in a
-            multi-cloud Kubernetes environment.
-          - Steer consolidation of predecessor-company workloads into a central
-            environment by defining CI/CD, container, deployment, and IaC
-            standards and reference implementations.
-          - Drive cross-team alignment on platform contracts and deployment
-            patterns, and mentor application developers on cloud-native
-            operations.
+          - Shape reliability strategy—including incident response and capacity planning—for customer- and workforce-facing applications in a multi-cloud Kubernetes environment.
+          - Steer consolidation of predecessor-company workloads into a central environment by defining CI/CD, container, deployment, and IaC standards and reference implementations.
+          - Drive cross-team alignment on platform contracts and deployment patterns, and mentor application developers on cloud-native operations.
       - designation: Senior DevOps Engineer
         start: June, 2024
         end: April, 2026
         responsibilities:
-          - Ensure uptime and resiliency of customer- and workforce-facing web
-            applications in a multi-cloud Kubernetes environment.
-          - Migrate applications from multiple cloud environments of predecessor
-            companies to a central environment, establishing CI/CD processes for
-            container builds, application deployments, and IaC definition.
-          - Accelerate application delivery by forging partnerships with
-            application teams, and by mentoring application developers.
+          - Ensure uptime and resiliency of customer- and workforce-facing web applications in a multi-cloud Kubernetes environment.
+          - Migrate applications from multiple cloud environments of predecessor companies to a central environment, establishing CI/CD processes for container builds, application deployments, and IaC definition.
+          - Accelerate application delivery by forging partnerships with application teams, and by mentoring application developers.
   - company:
       name: Evernorth Health Services
-      url: "https://www.evernorth.com"
+      url: https://www.evernorth.com
       location: Bloomfield, CT, USA
-      overview: |
+      overview: |-
         Evernorth Health Services, a member company of The Cigna Group, exists
         to elevate health for all, because health is the starting point for
         human potential and progress. As champions for affordable, predictable
@@ -58,23 +45,16 @@ experiences:
         start: March, 2024
         end: June, 2024
         responsibilities:
-          - Accelerate software delivery by provisioning infrastructure in public
-            and private clouds using a gallimaufry of tools, including Terraform
-            and Ansible.
-          - Author self-service tools to help application delivery teams deliver new
-            applications, ensure appropriate security scanning, and SOC2 compliance.
-          - Create and maintain CI/CD processes and patterns for Angular.JS, React.JS,
-            Node.JS, Java, Go, and Python applications in an assortment of orchestrators,
-            including GitLab CI, Jenkins, and Tekton.
-          - Serve as custodian for role-based access control for a delivery team of
-            approximately 200 persons, including stateside and offshore personnel.
-          - Manage an early career technical professional through their first foray into
-            the space of DevOps engineering.
+          - Accelerate software delivery by provisioning infrastructure in public and private clouds using a gallimaufry of tools, including Terraform and Ansible.
+          - Author self-service tools to help application delivery teams deliver new applications, ensure appropriate security scanning, and SOC2 compliance.
+          - Create and maintain CI/CD processes and patterns for Angular.JS, React.JS, Node.JS, Java, Go, and Python applications in an assortment of orchestrators, including GitLab CI, Jenkins, and Tekton.
+          - Serve as custodian for role-based access control for a delivery team of approximately 200 persons, including stateside and offshore personnel.
+          - Manage an early career technical professional through their first foray into the space of DevOps engineering.
   - company:
       name: Cigna Healthcare
-      url: "https://www.cigna.com"
+      url: https://www.cigna.com
       location: Bloomfield, CT, USA
-      overview: |
+      overview: |-
         Cigna Healthcare, a member company of The Cigna Group, is a global health service
         company, offers health, pharmacy, behavioral, dental, supplemental insurance and
         Medicare plans to individuals, families, and businesses.
@@ -83,55 +63,31 @@ experiences:
         start: January, 2022
         end: March, 2024
         responsibilities:
-          - Accelerate software delivery by provisioning infrastructure in public
-            and private clouds using a gallimaufry of tools, including Terraform
-            and Ansible.
-          - Author self-service tools to help application delivery teams deliver new
-            applications, ensure appropriate security scanning, and SOC2 compliance.
-          - Create and maintain CI/CD processes and patterns for Angular.JS, React.JS,
-            Node.JS, Java, Go, and Python applications in an assortment of orchestrators,
-            including GitLab CI, Jenkins, and Tekton.
-          - Serve as custodian for role-based access control for a delivery team of
-            approximately 200 persons, including stateside and offshore personnel.
-          - Manage an early career technical professional through their first foray into
-            the space of DevOps engineering.
+          - Accelerate software delivery by provisioning infrastructure in public and private clouds using a gallimaufry of tools, including Terraform and Ansible.
+          - Author self-service tools to help application delivery teams deliver new applications, ensure appropriate security scanning, and SOC2 compliance.
+          - Create and maintain CI/CD processes and patterns for Angular.JS, React.JS, Node.JS, Java, Go, and Python applications in an assortment of orchestrators, including GitLab CI, Jenkins, and Tekton.
+          - Serve as custodian for role-based access control for a delivery team of approximately 200 persons, including stateside and offshore personnel.
+          - Manage an early career technical professional through their first foray into the space of DevOps engineering.
       - designation: Architecture Senior Advisor, Digital DevSecOps
         start: November, 2019
         end: December, 2021
         responsibilities:
-          - I work predominantly on helping deliver our
-            customer-facing web entities to the market quickly and iteratively.
-            With a greater emphasis towards containerization and cloud-native
-            architecture, I work with my delivery partners in their efforts to move
-            applications to containers, and provide self-service tools to move
-            their applications to a combination of public and private cloud
-            infrastructures.
+          - I work predominantly on helping deliver our customer-facing web entities to the market quickly and iteratively. With a greater emphasis towards containerization and cloud-native architecture, I work with my delivery partners in their efforts to move applications to containers, and provide self-service tools to move their applications to a combination of public and private cloud infrastructures.
       - designation: Architecture Advisor, Digital DevOps
         start: July, 2018
         end: November, 2019
         responsibilities:
-          - "I work predominantly on helping deliver our
-            customer-facing web entities to the market quickly and iteratively.
-            With a greater emphasis towards containerization and cloud-native
-            architecture, I work with my delivery partners in their efforts to move
-            applications to containers, and provide self-service tools to move
-            their applications to a combination of public and private cloud
-            infrastructures."
+          - I work predominantly on helping deliver our customer-facing web entities to the market quickly and iteratively. With a greater emphasis towards containerization and cloud-native architecture, I work with my delivery partners in their efforts to move applications to containers, and provide self-service tools to move their applications to a combination of public and private cloud infrastructures.
       - designation: Infrastructure Engineer Senior Specialist
         start: June, 2016
         end: July, 2018
         responsibilities:
-          - "I work predominantly on automating processes currently being used
-            by Cigna to improve uptime and availability on customer-facing web
-            entities, powered by IBM WebSphere, Java with Spring Boot framework
-            and Node.JS. This role includes general Linux and Unix system
-            administration, as well as the design of waterfall-style and
-            continuous delivery pipelines."
+          - I work predominantly on automating processes currently being used by Cigna to improve uptime and availability on customer-facing web entities, powered by IBM WebSphere, Java with Spring Boot framework and Node.JS. This role includes general Linux and Unix system administration, as well as the design of waterfall-style and continuous delivery pipelines.
   - company:
       name: ProctorFree
-      url: "https://www.proctorfree.com"
+      url: https://www.proctorfree.com
       location: Huntersville, NC, USA
-      overview: |
+      overview: |-
         ProctorFree is an on-demand, convenient, and cost-effective online
         proctoring solution for education and corporate environments.
     positions:
@@ -139,13 +95,11 @@ experiences:
         start: April, 2015
         end: April, 2016
         responsibilities:
-          - "In my role as DevOps Engineer, I assist in optimizing system
-            uptime, performing preventative maintenance and identifying room
-            for improvement within the company's infrastructure."
+          - In my role as DevOps Engineer, I assist in optimizing system uptime, performing preventative maintenance and identifying room for improvement within the company's infrastructure.
   - company:
       name: RealTech, LLC
       location: West Chester, OH, USA
-      overview: |
+      overview: |-
         RealTech is a custom software development company that builds advanced
         solutions for mortgage professionals who wish to focus on purchase
         mortgage business and maximize profits and results through technology.
@@ -154,13 +108,12 @@ experiences:
         start: March, 2014
         end: July, 2014
         responsibilities:
-          - In my role as Systems Administrator, I am responsible for the emotional
-            and nutritional well-being of our server environment.
+          - In my role as Systems Administrator, I am responsible for the emotional and nutritional well-being of our server environment.
   - company:
       name: iFAX Solutions, Inc.
-      url: "https://www.ifax.com"
+      url: https://www.ifax.com
       location: Plymouth Meeting, PA, USA
-      overview: |
+      overview: |-
         iFAX Solutions is the developer of HylaFAX Enterprise Edition, the world’s
         most popular fax server software and the leading fax server for business.
     positions:
@@ -168,17 +121,12 @@ experiences:
         start: December, 2012
         end: September, 2013
         responsibilities:
-          - I am responsible for the diagnosis and repair of any hiccups that may
-            occur in the HylaFAX software for our clients, as well as providing
-            appropriate care to the clients themselves. In addition, I get to serve
-            as a “jack of all trades,” providing operational support for the core
-            business of the company and its now-defunct secondary operating unit,
-            TelephonyDepot.com.
+          - I am responsible for the diagnosis and repair of any hiccups that may occur in the HylaFAX software for our clients, as well as providing appropriate care to the clients themselves. In addition, I get to serve as a “jack of all trades,” providing operational support for the core business of the company and its now-defunct secondary operating unit, TelephonyDepot.com.
   - company:
       name: Community Action of the Lehigh Valley
-      url: "http://www.communityactionlv.org"
+      url: http://www.communityactionlv.org
       location: Bethlehem, PA, USA
-      overview: |
+      overview: |-
         Community Action Lehigh Valley is a multifaceted non-profit organization that
         operates financial education programs, provides food assistance, job placement,
         mortgage foreclosure diversion, aid for the homeless, neighborhood revitalization,
@@ -188,6 +136,4 @@ experiences:
         start: October, 2003
         end: December, 2012
         responsibilities:
-          - As the Director of Information Technology, I led a team of three people
-            to manage the voice and data infrastructure for twelve drastically varied
-            worksites spread across two counties in Northeast Pennsylvania.
+          - As the Director of Information Technology, I led a team of three people to manage the voice and data infrastructure for twelve drastically varied worksites spread across two counties in Northeast Pennsylvania.
