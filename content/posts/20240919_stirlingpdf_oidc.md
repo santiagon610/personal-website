@@ -19,6 +19,8 @@ tags:
   - portainer
   - sso
   - stirling_pdf
+aliases:
+  - /posts/20240919_stirlingpdf_oidc.html
 ---
 
 I've spent more time messing around with [Stirling PDF](https://github.com/Stirling-Tools/Stirling-PDF.git) and its new authentication feature over the past couple of days than I care to admit, and need to brain dump what I came up with.

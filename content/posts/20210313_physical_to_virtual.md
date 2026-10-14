@@ -23,6 +23,8 @@ tags:
   - virtualization
   - wfh
   - windows_xp
+aliases:
+  - /posts/20210313_physical_to_virtual.html
 ---
 
 I recently finished up a digital transformation for an existing customer with all the trimmings on their desktop and laptop PCs, and thought that I did a fantastic job. That was until they told me that they needed to get data off their old machines, and run some business software from their old machines until we could get the applications migrated.

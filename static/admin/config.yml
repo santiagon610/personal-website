@@ -69,8 +69,8 @@ collections:
       # The file name is the post's URL; changing it later would break links.
       editable: [create]
       hint: Keep it short, e.g. stirlingpdf_oidc.
-    # uglyURLs: posts are served as /posts/<file>.html.
-    preview_path: "posts/{{filename}}.html"
+    # Posts are served as /posts/<file>/.
+    preview_path: "posts/{{filename}}/"
     sortable_fields:
       default:
         field: date
@@ -133,6 +133,12 @@ collections:
         required: false
       - name: categories
         label: Categories (legacy)
+        widget: list
+        required: false
+      # Redirects from the old /posts/<file>.html URLs; kept so saving
+      # doesn't drop them.
+      - name: aliases
+        label: Old URLs
         widget: list
         required: false
       - name: body

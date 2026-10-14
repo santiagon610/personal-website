@@ -16,6 +16,8 @@ tags:
   - nginx
   - s3
   - terraform
+aliases:
+  - /posts/20220201_tf_staticsite.html
 ---
 
 I can't think about a time that I made a thing that I liked so much, that I just released it in the wild. But since I figured that I had been working with this module in a private repository for a while, and it worked well for my purposes, maybe it'll be good enough for random strangers to use. And here we are.

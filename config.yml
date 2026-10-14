@@ -3,7 +3,6 @@ baseURL: "/"
 locale: en-us
 title: "Nicholas Santiago"
 theme: "toha"
-uglyURLs: true
 
 deployment:
   targets:

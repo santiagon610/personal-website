@@ -56,7 +56,7 @@
         {{ end }}
         {{ if site.Params.enableBlogPost }}
           <li class="nav-item">
-            <a class="nav-link" id="blog-link" href="{{ "/posts.html" | relLangURL }}">{{ i18n "posts" }}</a>
+            <a class="nav-link" id="blog-link" href="{{ (site.GetPage "/posts").RelPermalink }}">{{ i18n "posts" }}</a>
           </li>
         {{ end }}
         {{ range  (index hugo.Data site.Language.Lang).site.customMenus }}
