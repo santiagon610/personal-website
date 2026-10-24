@@ -31,7 +31,10 @@ case "$id" in
 esac
 
 dir=.ci/lint
-mkdir -p "$dir"
+# Lint steps run in parallel as different users (markdownlint's image is UID
+# 1000, the rest are root), and whichever gets here first owns the directory.
+# Create it world-writable in one step so the others can still write into it.
+(umask 0 && mkdir -p "$dir")
 printf '%s\n' "$label" > "$dir/$id.label"
 
 # shellcheck disable=SC2046 # word-splitting the shell file list is intended
