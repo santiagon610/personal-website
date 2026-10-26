@@ -45,7 +45,7 @@ clone:
 # .markdownlint-cli2.yaml, .yamllint.yaml and .prettierignore.
 steps:
   - name: Lint Markdown
-    image: docker.io/davidanson/markdownlint-cli2:v0.23.3
+    image: docker.io/davidanson/markdownlint-cli2:v0.24.0
     depends_on: []
     commands:
       - sh .woodpecker/scripts/lint.sh markdown
