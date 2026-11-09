@@ -38,7 +38,7 @@ labels:
 # (plugin-git's `partial: true` fetches just the one commit).
 clone:
   - name: Clone repo
-    image: docker.io/woodpeckerci/plugin-git:2.10.1
+    image: docker.io/woodpeckerci/plugin-git:2.12.1
 
 # Lint steps have no dependencies, so they run in parallel; each one's output
 # and exit code land in .ci/lint/ for the PR comment. Linter configs live in
